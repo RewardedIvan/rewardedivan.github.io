@@ -24,6 +24,10 @@
 	import CSSIcon from "$lib/icons/lang/CSSIcon.svelte";
 	import HTMLIcon from "$lib/icons/lang/HTMLIcon.svelte";
 	import ReactIcon from "$lib/icons/lang/ReactIcon.svelte";
+	import LuaIcon from "$lib/icons/lang/LuaIcon.svelte";
+	import KernelIcon from "$lib/icons/lang/KernelIcon.svelte";
+	import ArchIcon from "$lib/icons/lang/ArchIcon.svelte";
+	import VimIcon from "$lib/icons/lang/VimIcon.svelte";
 
 	let copied = false;
 	$: {
@@ -95,6 +99,13 @@
 					<span class="flex flex-row gap-1 items-center"><TypescriptIcon size={"1em"} /> Typescript</span>
 					<span class="flex flex-row gap-1 items-center"><SvelteIcon /> Svelte/Kit</span>
 					<span class="flex flex-row gap-1 items-center"><ReactIcon /> React</span>
+				</div>
+
+				<div class="flex flex-row gap-2 items-center">
+					<span class="flex flex-row gap-1 items-center"><LuaIcon /> Lua</span>
+					<span class="flex flex-row gap-1 items-center"><KernelIcon /> GNU/Linux</span>
+					<span class="flex flex-row gap-1 items-center"><ArchIcon /> Arch</span>
+					<span class="flex flex-row gap-1 items-center"><VimIcon /> Vim</span>
 				</div>
 
 				<div class="flex flex-row gap-2 items-center">
