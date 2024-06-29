@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from "$app/environment";
 	import { copy } from "svelte-copy";
 	import { slide } from "svelte/transition";
 	import { expoInOut } from "svelte/easing";
@@ -21,11 +20,6 @@
 			setTimeout(() => copied = false, 2000);
 		}
 	}
-
-	let dark: boolean = true;
-	if (browser) {
-		dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-	}
 </script>
 
 {#if copied}
@@ -43,13 +37,13 @@
 <div class="navbar bg-base-200 justify-between">
 	<div class="flex flex-row items-center gap-2">
 		<span class="btn btn-ghost max-sm:btn-sm text-xl" use:copy={"int4_t"} on:svelte-copy={() => copied = true}><DiscordIcon /> discord</span>
-		<a class="btn btn-ghost max-sm:btn-sm text-xl" href="https://x.com/uint4_t"><XIcon fill={dark ? "#FFF" : "#000"} /> twitter</a>
-		<a class="btn btn-ghost max-sm:btn-sm text-xl" href="https://github.com/RewardedIvan"><GithubIcon fill={dark ? "#FFF" : "#000"} /> github</a>
-		<span class="btn btn-ghost max-sm:btn-sm text-xl" use:copy={"A16B98815D0563295CB2795FA16F1618AADEFEDF"} on:svelte-copy={() => copied = true}><KeyIcon fill={dark ? "#FFF" : "#000"} /> pgp</span>
+		<a class="btn btn-ghost max-sm:btn-sm text-xl" href="https://x.com/uint4_t"><XIcon /> twitter</a>
+		<a class="btn btn-ghost max-sm:btn-sm text-xl" href="https://github.com/RewardedIvan"><GithubIcon /> github</a>
+		<span class="btn btn-ghost max-sm:btn-sm text-xl" use:copy={"A16B98815D0563295CB2795FA16F1618AADEFEDF"} on:svelte-copy={() => copied = true}><KeyIcon /> pgp</span>
 	</div>
 
 	<div class="flex flex-row items-center gap-2">
-		<a href="https://github.com/RewardedIvan/rewardedivan.github.io" title="source" class="btn btn-ghost btn-circle max-sm:btn-sm"><GithubIcon fill={dark ? "#FFF" : "#000"} /></a>
+		<a href="https://github.com/RewardedIvan/rewardedivan.github.io" title="source" class="btn btn-ghost btn-circle max-sm:btn-sm"><GithubIcon /></a>
 	</div>
 </div>
 
