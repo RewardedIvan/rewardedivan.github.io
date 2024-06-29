@@ -30,6 +30,11 @@ export const skills: SkillGroup[] = [
 		items: [
 			{ name: "Bash" },
 			{ name: "Lua" },
+		]
+	},
+	{
+		name: "tools",
+		items: [
 			{ name: "Vim" },
 			{ name: "GNU/Linux", icon: "Kernel" },
 			{ name: "Arch" },
