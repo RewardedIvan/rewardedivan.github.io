@@ -4,20 +4,20 @@
 	import { expoInOut } from "svelte/easing";
 
 	// Material Icons
-	import ClipboardIcon from "$lib/icons/ClipboardIcon.svelte";
-	import KeyIcon from "$lib/icons/KeyIcon.svelte";
+	import ClipboardIcon from "$lib/icons/material/ClipboardIcon.svelte";
+	import KeyIcon from "$lib/icons/material/KeyIcon.svelte";
 
 	// Brand Icons
-	import DiscordIcon from "$lib/icons/DiscordIcon.svelte"
-	import XIcon from "$lib/icons/XIcon.svelte";
-	import GithubIcon from "$lib/icons/GithubIcon.svelte";
+	import DiscordIcon from "$lib/icons/brand/DiscordIcon.svelte"
+	import XIcon from "$lib/icons/brand/XIcon.svelte";
+	import GithubIcon from "$lib/icons/brand/GithubIcon.svelte";
 
 	// Language Icons
-	import SvelteIcon from "$lib/icons/SvelteIcon.svelte";
-	import TypescriptIcon from "$lib/icons/TypescriptIcon.svelte";
-	import GoIcon from "$lib/icons/GoIcon.svelte";
-	import CLogo from "$lib/icons/CLogo.svelte";
-	import CppLogo from "$lib/icons/CPPLogo.svelte";
+	import SvelteIcon from "$lib/icons/lang/SvelteIcon.svelte";
+	import TypescriptIcon from "$lib/icons/lang/TypescriptIcon.svelte";
+	import GoIcon from "$lib/icons/lang/GoIcon.svelte";
+	import CLogo from "$lib/icons/lang/CLogo.svelte";
+	import CppLogo from "$lib/icons/lang/CPPLogo.svelte";
 
 	let copied = false;
 	$: {
