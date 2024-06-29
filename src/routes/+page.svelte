@@ -18,6 +18,7 @@
 	import GoIcon from "$lib/icons/lang/GoIcon.svelte";
 	import CIcon from "$lib/icons/lang/CIcon.svelte";
 	import CPPIcon from "$lib/icons/lang/CPPIcon.svelte";
+	import JavaIcon from "$lib/icons/lang/JavaIcon.svelte";
 
 	let copied = false;
 	$: {
@@ -82,7 +83,11 @@
 				<div class="flex flex-row gap-2 items-center">
 					<span class="flex flex-row gap-1 items-center"><SvelteIcon /> Svelte</span>
 					<span class="flex flex-row gap-1 items-center"><TypescriptIcon size={"1em"} /> Typescript</span>
+				</div>
+
+				<div class="flex flex-row gap-2 items-center">
 					<span class="flex flex-row gap-1 items-center"><GoIcon size={"2em"} /> Go</span>
+					<span class="flex flex-row gap-1 items-center"><JavaIcon /> Java</span>
 				</div>
 
 				<div class="flex flex-row gap-3 items-center">
