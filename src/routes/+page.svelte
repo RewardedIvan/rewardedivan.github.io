@@ -21,6 +21,9 @@
 	import JavaIcon from "$lib/icons/lang/JavaIcon.svelte";
 	import CSIcon from "$lib/icons/lang/CSIcon.svelte";
 	import JavascriptIcon from "$lib/icons/lang/JavascriptIcon.svelte";
+	import CSSIcon from "$lib/icons/lang/CSSIcon.svelte";
+	import HTMLIcon from "$lib/icons/lang/HTMLIcon.svelte";
+	import ReactIcon from "$lib/icons/lang/ReactIcon.svelte";
 
 	let copied = false;
 	$: {
@@ -83,9 +86,15 @@
 				<span class="font-bold text-lg">skills</span>
 
 				<div class="flex flex-row gap-2 items-center">
-					<span class="flex flex-row gap-1 items-center"><SvelteIcon /> Svelte</span>
-					<span class="flex flex-row gap-1 items-center"><TypescriptIcon size={"1em"} /> Typescript</span>
 					<span class="flex flex-row gap-1 items-center"><JavascriptIcon className="rounded-sm" size={"1em"} /> Javascript</span>
+					<span class="flex flex-row gap-1 items-center"><CSSIcon /> CSS</span>
+					<span class="flex flex-row gap-1 items-center"><HTMLIcon /> HMTL</span>
+				</div>
+
+				<div class="flex flex-row gap-2 items-center">
+					<span class="flex flex-row gap-1 items-center"><TypescriptIcon size={"1em"} /> Typescript</span>
+					<span class="flex flex-row gap-1 items-center"><SvelteIcon /> Svelte/Kit</span>
+					<span class="flex flex-row gap-1 items-center"><ReactIcon /> React</span>
 				</div>
 
 				<div class="flex flex-row gap-2 items-center">
