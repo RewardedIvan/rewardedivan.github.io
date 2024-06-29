@@ -35,7 +35,7 @@
 {/if}
 
 <div class="min-h-screen flex flex-col">
-	<div class="navbar bg-base-100">
+	<div class="navbar bg-base-200">
 		<div class="flex flex-row items-center gap-2">
 			<span class="btn btn-ghost max-sm:btn-sm text-xl" use:copy={"int4_t"} on:svelte-copy={() => copied = true}><DiscordIcon /> discord</span>
 			<a class="btn btn-ghost max-sm:btn-sm text-xl" href="https://x.com/uint4_t"><XIcon /> twitter</a>
