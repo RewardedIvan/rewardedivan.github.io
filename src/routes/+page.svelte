@@ -11,6 +11,13 @@
 	import DiscordIcon from "$lib/icons/DiscordIcon.svelte"
 	import XIcon from "$lib/icons/XIcon.svelte";
 
+	// Language Icons
+	import SvelteIcon from "$lib/icons/SvelteIcon.svelte";
+	import TypescriptIcon from "$lib/icons/TypescriptIcon.svelte";
+	import GoIcon from "$lib/icons/GoIcon.svelte";
+	import CLogo from "$lib/icons/CLogo.svelte";
+	import CppLogo from "$lib/icons/CPPLogo.svelte";
+
 	let copied = false;
 	$: {
 		if (copied == true) {
@@ -65,6 +72,23 @@
 				</div>
 
 				<div></div>
+			</div>
+		</div>
+
+		<div class="hero bg-base-200 w-fit p-3 rounded-lg">
+			<div class="hero-content flex-col">
+				<span class="font-bold text-lg">skills</span>
+
+				<div class="flex flex-row gap-2 items-center">
+					<span class="flex flex-row gap-1 items-center"><SvelteIcon /> Svelte</span>
+					<span class="flex flex-row gap-1 items-center"><TypescriptIcon size={"1em"} /> Typescript</span>
+					<span class="flex flex-row gap-1 items-center"><GoIcon size={"2em"} /> Go</span>
+				</div>
+
+				<div class="flex flex-row gap-3 items-center">
+					<span class="flex flex-row gap-1 items-center"><CLogo /> C</span>
+					<span class="flex flex-row gap-1 items-center"><CppLogo /> C++</span>
+				</div>
 			</div>
 		</div>
 	</div>
