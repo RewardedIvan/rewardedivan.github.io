@@ -46,6 +46,7 @@
 
 <svelte:head>
 	<link rel="icon" href={pfp} />
+	<meta content={pfp} property="og:image" />
 </svelte:head>
 
 {#if copied}
