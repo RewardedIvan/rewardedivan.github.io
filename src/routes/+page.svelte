@@ -10,6 +10,7 @@
 	// Brand Icons
 	import DiscordIcon from "$lib/icons/DiscordIcon.svelte"
 	import XIcon from "$lib/icons/XIcon.svelte";
+	import GithubIcon from "$lib/icons/GithubIcon.svelte";
 
 	// Language Icons
 	import SvelteIcon from "$lib/icons/SvelteIcon.svelte";
@@ -49,6 +50,7 @@
 		<div class="flex flex-row items-center gap-2">
 			<span class="btn btn-ghost max-sm:btn-sm text-xl" use:copy={"int4_t"} on:svelte-copy={() => copied = true}><DiscordIcon /> discord</span>
 			<a class="btn btn-ghost max-sm:btn-sm text-xl" href="https://x.com/uint4_t"><XIcon /> twitter</a>
+			<a class="btn btn-ghost max-sm:btn-sm text-xl" href="https://github.com/RewardedIvan"><GithubIcon /> github</a>
 			<span class="btn btn-ghost max-sm:btn-sm text-xl" use:copy={"A16B98815D0563295CB2795FA16F1618AADEFEDF"} on:svelte-copy={() => copied = true}><KeyIcon /> pgp</span>
 		</div>
 	</div>
