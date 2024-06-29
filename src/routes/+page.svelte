@@ -3,9 +3,12 @@
 	import { slide } from "svelte/transition";
 	import { expoInOut } from "svelte/easing";
 
-	import DiscordIcon from "$lib/icons/DiscordIcon.svelte"
+	// Material Icons
 	import ClipboardIcon from "$lib/icons/ClipboardIcon.svelte";
 	import KeyIcon from "$lib/icons/KeyIcon.svelte";
+
+	// Brand Icons
+	import DiscordIcon from "$lib/icons/DiscordIcon.svelte"
 	import XIcon from "$lib/icons/XIcon.svelte";
 
 	let copied = false;
