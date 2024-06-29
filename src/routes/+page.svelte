@@ -37,17 +37,11 @@
 		}
 	}
 
-	const pfp = "https://cdn.discordapp.com/avatars/723437187428778015/48ea39f4469667917a6d366798f4d7b4.webp?size=1024&format=webp&width=0&height=256";
 	let dark: boolean = true;
 	if (browser) {
 		dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	}
 </script>
-
-<svelte:head>
-	<link rel="icon" href={pfp} />
-	<meta content={pfp} property="og:image" />
-</svelte:head>
 
 {#if copied}
 	<div
@@ -79,7 +73,7 @@
 		<div class="hero bg-base-200 w-fit p-3 rounded-lg">
 			<div class="hero-content flex-col">
 				<img
-					src={pfp}
+					src="/pfp.png"
 					class="max-w-sm rounded-lg shadow-2xl"
 					alt="pfp"
 				/>
