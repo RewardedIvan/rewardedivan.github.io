@@ -73,10 +73,17 @@
 				<span class="font-bold text-lg">skills</span>
 
 				{#each skills as sg}
-					<div class="flex flex-row gap-2 items-center">
-						{#each sg.items as sk}
-							<span class="flex flex-row gap-1 items-center"><img src="/icons/skills/{sg.name}/{(sk.icon == null) ? sk.name : sk.icon}.svg" alt={sk.name} /> {sk.name}</span>
-						{/each}
+					<div class="flex flex-row gap-2 items-center justify-between w-full">
+						<div class="flex flex-row gap-2 items-center justify-start">
+							{#each sg.items as sk}
+								<span class="flex flex-row gap-1 items-center">
+									<img src="/icons/skills/{sg.name}/{(!sk.icon) ? sk.name : sk.icon}.svg" alt={sk.name} />
+									{sk.name}
+								</span>
+							{/each}
+						</div>
+
+						<span class="text-slate-500">{sg.name}</span>
 					</div>
 				{/each}
 			</div>
