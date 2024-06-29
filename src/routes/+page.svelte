@@ -16,8 +16,8 @@
 	import SvelteIcon from "$lib/icons/lang/SvelteIcon.svelte";
 	import TypescriptIcon from "$lib/icons/lang/TypescriptIcon.svelte";
 	import GoIcon from "$lib/icons/lang/GoIcon.svelte";
-	import CLogo from "$lib/icons/lang/CLogo.svelte";
-	import CppLogo from "$lib/icons/lang/CPPLogo.svelte";
+	import CIcon from "$lib/icons/lang/CIcon.svelte";
+	import CPPIcon from "$lib/icons/lang/CPPIcon.svelte";
 
 	let copied = false;
 	$: {
@@ -86,8 +86,8 @@
 				</div>
 
 				<div class="flex flex-row gap-3 items-center">
-					<span class="flex flex-row gap-1 items-center"><CLogo /> C</span>
-					<span class="flex flex-row gap-1 items-center"><CppLogo /> C++</span>
+					<span class="flex flex-row gap-1 items-center"><CIcon /> C</span>
+					<span class="flex flex-row gap-1 items-center"><CPPIcon /> C++</span>
 				</div>
 			</div>
 		</div>
