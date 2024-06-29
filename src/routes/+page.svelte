@@ -14,7 +14,13 @@
 			setTimeout(() => copied = false, 2000);
 		}
 	}
+
+	const pfp = "https://cdn.discordapp.com/avatars/723437187428778015/48ea39f4469667917a6d366798f4d7b4.webp?size=1024&format=webp&width=0&height=256";
 </script>
+
+<svelte:head>
+	<link rel="icon" href={pfp} />
+</svelte:head>
 
 {#if copied}
 	<div
@@ -40,7 +46,7 @@
 	<div class="hero bg-base-200 flex-grow">
 		<div class="hero-content flex-col">
 			<img
-				src="https://cdn.discordapp.com/avatars/723437187428778015/48ea39f4469667917a6d366798f4d7b4.webp?size=1024&format=webp&width=0&height=256"
+				src={pfp}
 				class="max-w-sm rounded-lg shadow-2xl"
 				alt="pfp" />
 
