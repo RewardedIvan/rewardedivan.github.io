@@ -6,6 +6,7 @@
 	import DiscordIcon from "$lib/icons/DiscordIcon.svelte"
 	import ClipboardIcon from "$lib/icons/ClipboardIcon.svelte";
 	import KeyIcon from "$lib/icons/KeyIcon.svelte";
+	import XIcon from "$lib/icons/XIcon.svelte";
 
 	let copied = false;
 	$: {
@@ -30,8 +31,9 @@
 <div class="min-h-screen flex flex-col">
 	<div class="navbar bg-base-100">
 		<div class="flex flex-row items-center gap-2">
-			<span class="btn btn-ghost text-xl" use:copy={"int4_t"} on:svelte-copy={() => copied = true}><DiscordIcon /> discord</span>
-			<span class="btn btn-ghost text-xl" use:copy={"A16B98815D0563295CB2795FA16F1618AADEFEDF"} on:svelte-copy={() => copied = true}><KeyIcon /> pgp</span>
+			<span class="btn btn-ghost max-sm:btn-sm text-xl" use:copy={"int4_t"} on:svelte-copy={() => copied = true}><DiscordIcon /> discord</span>
+			<a class="btn btn-ghost max-sm:btn-sm text-xl" href="https://x.com/uint4_t"><XIcon /> twitter</a>
+			<span class="btn btn-ghost max-sm:btn-sm text-xl" use:copy={"A16B98815D0563295CB2795FA16F1618AADEFEDF"} on:svelte-copy={() => copied = true}><KeyIcon /> pgp</span>
 		</div>
 	</div>
 
