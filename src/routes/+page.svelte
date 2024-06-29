@@ -46,19 +46,25 @@
 		</div>
 	</div>
 
-	<div class="hero bg-base-200 flex-grow">
-		<div class="hero-content flex-col">
-			<img
-				src={pfp}
-				class="max-w-sm rounded-lg shadow-2xl"
-				alt="pfp" />
+	<div class="flex-grow flex flex-col items-center justify-center gap-5 mx-5">
+		<div class="hero bg-base-200 w-fit p-3 rounded-lg">
+			<div class="hero-content flex-col">
+				<img
+					src={pfp}
+					class="max-w-sm rounded-lg shadow-2xl"
+					alt="pfp"
+				/>
 
-			<div>
-				<div class="flex flex-row items-end">
-					<h1 class="text-5xl font-bold">int4_t</h1>
-					<span class="text-sm text-slate-500">aka. rewardedivan</span>
+				<div>
+					<div class="flex flex-row items-end">
+						<h1 class="text-5xl font-bold">int4_t</h1>
+						<span class="text-sm text-slate-500">aka. rewardedivan</span>
+					</div>
+
+					<span>hello i am code person i do write code stuff</span>
 				</div>
-				<span class="py-6">hello i am code person i do write code stuff</span>
+
+				<div></div>
 			</div>
 		</div>
 	</div>
