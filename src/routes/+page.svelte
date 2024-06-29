@@ -72,8 +72,6 @@
 
 					<span>hello i am code person i do write code stuff</span>
 				</div>
-
-				<div></div>
 			</div>
 		</div>
 
