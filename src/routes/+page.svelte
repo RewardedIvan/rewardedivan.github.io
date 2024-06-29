@@ -38,7 +38,7 @@
 	}
 
 	const pfp = "https://cdn.discordapp.com/avatars/723437187428778015/48ea39f4469667917a6d366798f4d7b4.webp?size=1024&format=webp&width=0&height=256";
-	let dark: boolean;
+	let dark: boolean = true;
 	if (browser) {
 		dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	}
