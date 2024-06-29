@@ -4,6 +4,8 @@
 	import { slide } from "svelte/transition";
 	import { expoInOut } from "svelte/easing";
 
+	import { skills } from "$lib/skills";
+
 	// Material Icons
 	import ClipboardIcon from "$lib/icons/material/ClipboardIcon.svelte";
 	import KeyIcon from "$lib/icons/material/KeyIcon.svelte";
@@ -12,23 +14,6 @@
 	import DiscordIcon from "$lib/icons/brand/DiscordIcon.svelte"
 	import XIcon from "$lib/icons/brand/XIcon.svelte";
 	import GithubIcon from "$lib/icons/brand/GithubIcon.svelte";
-
-	// Language Icons
-	import SvelteIcon from "$lib/icons/lang/SvelteIcon.svelte";
-	import TypescriptIcon from "$lib/icons/lang/TypescriptIcon.svelte";
-	import GoIcon from "$lib/icons/lang/GoIcon.svelte";
-	import CIcon from "$lib/icons/lang/CIcon.svelte";
-	import CPPIcon from "$lib/icons/lang/CPPIcon.svelte";
-	import JavaIcon from "$lib/icons/lang/JavaIcon.svelte";
-	import CSIcon from "$lib/icons/lang/CSIcon.svelte";
-	import JavascriptIcon from "$lib/icons/lang/JavascriptIcon.svelte";
-	import CSSIcon from "$lib/icons/lang/CSSIcon.svelte";
-	import HTMLIcon from "$lib/icons/lang/HTMLIcon.svelte";
-	import ReactIcon from "$lib/icons/lang/ReactIcon.svelte";
-	import LuaIcon from "$lib/icons/lang/LuaIcon.svelte";
-	import KernelIcon from "$lib/icons/lang/KernelIcon.svelte";
-	import ArchIcon from "$lib/icons/lang/ArchIcon.svelte";
-	import VimIcon from "$lib/icons/lang/VimIcon.svelte";
 
 	let copied = false;
 	$: {
@@ -93,35 +78,13 @@
 			<div class="hero-content flex-col">
 				<span class="font-bold text-lg">skills</span>
 
-				<div class="flex flex-row gap-2 items-center">
-					<span class="flex flex-row gap-1 items-center"><JavascriptIcon className="rounded-sm" size={"1em"} /> Javascript</span>
-					<span class="flex flex-row gap-1 items-center"><CSSIcon /> CSS</span>
-					<span class="flex flex-row gap-1 items-center"><HTMLIcon /> HMTL</span>
-				</div>
-
-				<div class="flex flex-row gap-2 items-center">
-					<span class="flex flex-row gap-1 items-center"><TypescriptIcon size={"1em"} /> Typescript</span>
-					<span class="flex flex-row gap-1 items-center"><SvelteIcon /> Svelte/Kit</span>
-					<span class="flex flex-row gap-1 items-center"><ReactIcon /> React</span>
-				</div>
-
-				<div class="flex flex-row gap-2 items-center">
-					<span class="flex flex-row gap-1 items-center"><LuaIcon /> Lua</span>
-					<span class="flex flex-row gap-1 items-center"><KernelIcon /> GNU/Linux</span>
-					<span class="flex flex-row gap-1 items-center"><ArchIcon /> Arch</span>
-					<span class="flex flex-row gap-1 items-center"><VimIcon /> Vim</span>
-				</div>
-
-				<div class="flex flex-row gap-2 items-center">
-					<span class="flex flex-row gap-1 items-center"><GoIcon size={"2em"} /> Go</span>
-					<span class="flex flex-row gap-1 items-center"><JavaIcon /> Java</span>
-					<span class="flex flex-row gap-1 items-center"><CSIcon /> C#</span>
-				</div>
-
-				<div class="flex flex-row gap-3 items-center">
-					<span class="flex flex-row gap-1 items-center"><CIcon /> C</span>
-					<span class="flex flex-row gap-1 items-center"><CPPIcon /> C++</span>
-				</div>
+				{#each skills as sg}
+					<div class="flex flex-row gap-2 items-center">
+						{#each sg.items as sk}
+							<span class="flex flex-row gap-1 items-center"><img src="/icons/skills/{sg.name}/{(sk.icon == null) ? sk.name : sk.icon}.svg" alt={sk.name} /> {sk.name}</span>
+						{/each}
+					</div>
+				{/each}
 			</div>
 		</div>
 	</div>
