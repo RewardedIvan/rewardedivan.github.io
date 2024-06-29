@@ -20,6 +20,7 @@
 	import CPPIcon from "$lib/icons/lang/CPPIcon.svelte";
 	import JavaIcon from "$lib/icons/lang/JavaIcon.svelte";
 	import CSIcon from "$lib/icons/lang/CSIcon.svelte";
+	import JavascriptIcon from "$lib/icons/lang/JavascriptIcon.svelte";
 
 	let copied = false;
 	$: {
@@ -84,6 +85,7 @@
 				<div class="flex flex-row gap-2 items-center">
 					<span class="flex flex-row gap-1 items-center"><SvelteIcon /> Svelte</span>
 					<span class="flex flex-row gap-1 items-center"><TypescriptIcon size={"1em"} /> Typescript</span>
+					<span class="flex flex-row gap-1 items-center"><JavascriptIcon className="rounded-sm" size={"1em"} /> Javascript</span>
 				</div>
 
 				<div class="flex flex-row gap-2 items-center">
