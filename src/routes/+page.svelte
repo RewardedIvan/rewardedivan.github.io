@@ -19,6 +19,7 @@
 	import CIcon from "$lib/icons/lang/CIcon.svelte";
 	import CPPIcon from "$lib/icons/lang/CPPIcon.svelte";
 	import JavaIcon from "$lib/icons/lang/JavaIcon.svelte";
+	import CSIcon from "$lib/icons/lang/CSIcon.svelte";
 
 	let copied = false;
 	$: {
@@ -88,6 +89,7 @@
 				<div class="flex flex-row gap-2 items-center">
 					<span class="flex flex-row gap-1 items-center"><GoIcon size={"2em"} /> Go</span>
 					<span class="flex flex-row gap-1 items-center"><JavaIcon /> Java</span>
+					<span class="flex flex-row gap-1 items-center"><CSIcon /> C#</span>
 				</div>
 
 				<div class="flex flex-row gap-3 items-center">
