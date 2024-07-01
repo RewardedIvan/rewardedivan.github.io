@@ -14,6 +14,9 @@
 	import XIcon from "$lib/icons/brand/XIcon.svelte";
 	import GithubIcon from "$lib/icons/brand/GithubIcon.svelte";
 
+	// Flag
+	import BulgarianFlag from "$lib/icons/flag/BulgarianFlag.svelte";
+
 	let copied = false;
 	$: {
 		if (copied == true) {
@@ -63,7 +66,7 @@
 						<span class="text-sm text-slate-500">aka. rewardedivan</span>
 					</div>
 
-					<span>hello i am code person i do write code stuff</span>
+					<span class="flex flex-row gap-1 items-center">developer/software engineer from <BulgarianFlag className="rounded" /> bulgaria</span>
 				</div>
 			</div>
 		</div>
