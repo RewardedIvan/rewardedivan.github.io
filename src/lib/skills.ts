@@ -49,6 +49,7 @@ export const skills: SkillGroup[] = [
 			{ name: "Go" },
 			{ name: "Java" },
 			{ name: "C#", icon: "CS" },
+			{ name: "Python" },
 		]
 	},
 	{
