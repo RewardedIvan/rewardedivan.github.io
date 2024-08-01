@@ -55,7 +55,7 @@
 		<div class="hero bg-base-200 w-fit p-3 rounded-lg">
 			<div class="hero-content flex-col">
 				<img
-					src="/pfp.png"
+					src="https://avatars.githubusercontent.com/u/67065165"
 					class="max-w-sm rounded-lg shadow-2xl"
 					alt="pfp"
 				/>
