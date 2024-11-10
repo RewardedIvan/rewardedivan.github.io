@@ -1,14 +1,14 @@
-export interface Skill {
+export interface Tool {
 	name: string;
 	icon?: string;
 };
 
-export interface SkillGroup {
+export interface ToolGroup {
 	name: string;
-	items: Skill[];
+	items: Tool[];
 };
 
-export const skills: SkillGroup[] = [
+export const tools: ToolGroup[] = [
 	{
 		name: "webdev",
 		items: [
@@ -35,7 +35,7 @@ export const skills: SkillGroup[] = [
 		]
 	},
 	{
-		name: "tools",
+		name: "programs",
 		items: [
 			{ name: "Vim" },
 			{ name: "Git" },
