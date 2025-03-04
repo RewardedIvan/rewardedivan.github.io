@@ -17,12 +17,12 @@
 	import BulgarianFlag from '$lib/icons/flag/BulgarianFlag.svelte';
 	import Button from './Button.svelte';
 
-	let copied = false;
-	$: {
+	let copied = $state(false);
+	$effect(() => {
 		if (copied == true) {
 			setTimeout(() => (copied = false), 2000);
 		}
-	}
+	});
 </script>
 
 {#if copied}

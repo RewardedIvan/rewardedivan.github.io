@@ -1,14 +1,23 @@
 <script lang="ts">
-	export let href: string | null = null;
-	export let copy: string | null = null;
-	export let onclick: () => void = () => {};
+	interface Props {
+		href?: string | null;
+		copy?: string | null;
+		onclick?: () => void;
+		class?: string;
+		children?: import('svelte').Snippet;
+	}
 
-	let className = '';
-	export { className as class };
+	let {
+		href = null,
+		copy = null,
+		onclick = () => {},
+		class: className = '',
+		children
+	}: Props = $props();
 
-	let layer: HTMLDivElement;
-	let clientWidth: number;
-	let clientHeight: number;
+	let layer: HTMLDivElement | null = $state(null);
+	let clientWidth: number = $state(0);
+	let clientHeight: number = $state(0);
 	let mouseOffsetX = 0;
 	let mouseOffsetY = 0;
 
@@ -33,6 +42,8 @@
 	function mouseDown() {
 		anims.forEach((e) => e.cancel());
 		anims = [];
+
+		if (!layer) return;
 
 		layer.style.left = mouseOffsetX + 'px';
 		layer.style.top = mouseOffsetY + 'px';
@@ -62,20 +73,20 @@
 </script>
 
 <div class="relative overflow-clip rounded-md">
-	<div class="absolute right-0 top-0 h-full w-full bg-base-700" />
+	<div class="absolute right-0 top-0 h-full w-full bg-base-700"></div>
 	<div
 		class="pointer-events-none absolute right-0 top-0 z-0 h-[10px] w-[10px] scale-0 rounded-md bg-base-900 bg-opacity-80"
 		bind:this={layer}
-	/>
+	></div>
 
 	<button
-		on:click={click}
-		on:mousemove={mouseMove}
-		on:mousedown={mouseDown}
+		onclick={click}
+		onmousemove={mouseMove}
+		onmousedown={mouseDown}
 		bind:clientWidth
 		bind:clientHeight
 		class="flex flex-row items-center gap-3 bg-transparent p-2 {className}"
 	>
-		<slot />
+		{@render children?.()}
 	</button>
 </div>
