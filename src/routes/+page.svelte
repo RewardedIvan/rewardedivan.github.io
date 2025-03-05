@@ -1,21 +1,15 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
 	import { expoInOut } from 'svelte/easing';
-
 	import { tools } from '$lib/tools';
+	import Button from './Button.svelte';
 
-	// Material Icons
 	import ClipboardIcon from '$lib/icons/material/ClipboardIcon.svelte';
 	import KeyIcon from '$lib/icons/material/KeyIcon.svelte';
-
-	// Brand Icons
 	import DiscordIcon from '$lib/icons/brand/DiscordIcon.svelte';
 	import XIcon from '$lib/icons/brand/XIcon.svelte';
 	import GithubIcon from '$lib/icons/brand/GithubIcon.svelte';
-
-	// Flag
 	import BulgarianFlag from '$lib/icons/flag/BulgarianFlag.svelte';
-	import Button from './Button.svelte';
 
 	let copied = $state(false);
 	$effect(() => {
@@ -39,29 +33,41 @@
 
 <div class="flex flex-row justify-between rounded-b-lg bg-base-500 p-4">
 	<div class="flex flex-row items-center gap-2">
-		<Button class="text-xl" copy="int4_t" onclick={() => (copied = true)}>
-			<DiscordIcon /> discord
+		{#snippet txt(str: string)}
+			<span
+				class="max-w-0 -translate-x-2 opacity-0 transition-all group-hover:static group-hover:ml-1 group-hover:max-w-40 group-hover:translate-x-0 group-hover:opacity-100"
+			>
+				{str}
+			</span>
+		{/snippet}
+
+		<Button class="group text-xl" copy="int4_t" onclick={() => (copied = true)}>
+			<DiscordIcon />
+			{@render txt('discord')}
 		</Button>
 
-		<Button class="text-xl" href="https://x.com/uint4_t">
-			<XIcon /> twitter
+		<Button class="group text-xl" href="https://x.com/uint4_t">
+			<XIcon />
+			{@render txt('twitter')}
 		</Button>
 
-		<Button class="text-xl" href="https://github.com/RewardedIvan">
-			<GithubIcon /> github
+		<Button class="group text-xl" href="https://github.com/RewardedIvan">
+			<GithubIcon />
+			{@render txt('github')}
 		</Button>
 
 		<Button
-			class="text-xl"
+			class="group text-xl"
 			copy="A16B98815D0563295CB2795FA16F1618AADEFEDF"
 			onclick={() => (copied = true)}
 		>
-			<KeyIcon /> pgp
+			<KeyIcon />
+			{@render txt('pgp')}
 		</Button>
 	</div>
 
 	<div class="flex flex-row items-center gap-2">
-		<Button href="https://github.com/RewardedIvan/rewardedivan.github.io">
+		<Button href="https://github.com/RewardedIvan/rewardedivan.github.io" class="rounded-full p-1">
 			<GithubIcon />
 		</Button>
 	</div>

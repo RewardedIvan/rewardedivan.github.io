@@ -1,92 +1,97 @@
 <script lang="ts">
+	import type { HTMLButtonAttributes } from 'svelte/elements';
+
 	interface Props {
-		href?: string | null;
-		copy?: string | null;
-		onclick?: () => void;
-		class?: string;
-		children?: import('svelte').Snippet;
+		rippleDuration?: number;
+		wrapperClass?: string;
+		copy?: string;
+		href?: string;
 	}
 
 	let {
-		href = null,
-		copy = null,
-		onclick = () => {},
-		class: className = '',
-		children
-	}: Props = $props();
+		children,
+		rippleDuration = 600,
+		class: className,
+		wrapperClass,
+		copy,
+		href,
+		...restProps
+	}: Props & HTMLButtonAttributes = $props();
 
-	let layer: HTMLDivElement | null = $state(null);
-	let clientWidth: number = $state(0);
-	let clientHeight: number = $state(0);
-	let mouseOffsetX = 0;
-	let mouseOffsetY = 0;
+	let ripples = $state<Array<{ id: number; x: number; y: number; size: number }>>([]);
+	let buttonElement: HTMLButtonElement | null = $state(null);
 
-	function click() {
+	function createRipple(event: MouseEvent) {
+		const button = buttonElement!;
+		const rect = button.getBoundingClientRect();
+
+		const x = event.clientX - rect.left;
+		const y = event.clientY - rect.top;
+
+		const size = Math.max(button.clientWidth, button.clientHeight) * 2;
+
+		const newRipple = { id: Math.random(), x, y, size };
+		ripples = [...ripples, newRipple];
+
+		setTimeout(() => {
+			ripples = ripples.filter((r) => r.id !== newRipple.id);
+		}, rippleDuration);
+	}
+
+	async function onClick(event: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }) {
 		if (copy) {
-			navigator.clipboard.writeText(copy);
+			await navigator.clipboard.writeText(copy);
 		}
 
 		if (href) {
-			window.location.href = href;
+			window.open(href, '_blank');
 		}
 
-		onclick();
-	}
-
-	function mouseMove(e: MouseEvent) {
-		mouseOffsetX = e.offsetX;
-		mouseOffsetY = e.offsetY;
-	}
-
-	let anims: Animation[] = [];
-	function mouseDown() {
-		anims.forEach((e) => e.cancel());
-		anims = [];
-
-		if (!layer) return;
-
-		layer.style.left = mouseOffsetX + 'px';
-		layer.style.top = mouseOffsetY + 'px';
-
-		anims.push(
-			layer.animate(
-				[
-					{ transform: `scale(0)` },
-					{ transform: `scale(${((clientHeight / 10) * (clientWidth / 10)) / 2})` }
-				],
-				{
-					duration: 400,
-					easing: 'cubic-bezier(0, 0.55, 0.45, 1)',
-					endDelay: 300
-				}
-			)
-		);
-
-		anims.push(
-			layer.animate([{ opacity: `100%` }, { opacity: `0%` }], {
-				delay: 300,
-				duration: 100,
-				easing: 'cubic-bezier(0, 0.55, 0.45, 1)'
-			})
-		);
+		restProps.onclick?.(event);
 	}
 </script>
 
-<div class="relative overflow-clip rounded-md">
-	<div class="absolute right-0 top-0 h-full w-full bg-base-700"></div>
-	<div
-		class="pointer-events-none absolute right-0 top-0 z-0 h-[10px] w-[10px] scale-0 rounded-md bg-base-900 bg-opacity-80"
-		bind:this={layer}
-	></div>
-
-	<button
-		onclick={click}
-		onmousemove={mouseMove}
-		onmousedown={mouseDown}
-		bind:clientWidth
-		bind:clientHeight
-		class="flex flex-row items-center gap-3 bg-transparent p-2 {className}"
-	>
+<button
+	bind:this={buttonElement}
+	class="relative select-none overflow-hidden rounded-md bg-base-900 text-white transition-all duration-200 ease-in-out {className}"
+	onmousedown={createRipple}
+	onclick={onClick}
+	{...restProps}
+>
+	<span class="relative z-10 flex flex-row items-center justify-center p-1 {wrapperClass}">
 		{@render children?.()}
-	</button>
-</div>
+	</span>
+
+	<div class="pointer-events-none absolute inset-0 overflow-hidden">
+		{#each ripples as ripple (ripple.id)}
+			<span
+				class="animate-ripple absolute -translate-x-1/2 -translate-y-1/2 transform rounded-full opacity-0"
+				style="
+					left: {ripple.x}px; 
+					top: {ripple.y}px; 
+					width: {ripple.size}px; 
+					height: {ripple.size}px; 
+					background-color: #fff;
+					animation-duration: {rippleDuration}ms;
+				"
+			></span>
+		{/each}
+	</div>
+</button>
+
+<style>
+	@keyframes ripple {
+		0% {
+			transform: translate(-50%, -50%) scale(0);
+			opacity: 0.5;
+		}
+		100% {
+			transform: translate(-50%, -50%) scale(1);
+			opacity: 0;
+		}
+	}
+
+	.animate-ripple {
+		animation: ripple forwards cubic-bezier(0.22, 1, 0.36, 1);
+	}
+</style>
