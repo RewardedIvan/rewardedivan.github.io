@@ -53,19 +53,19 @@
 
 <button
 	bind:this={buttonElement}
-	class="relative select-none overflow-hidden rounded-md bg-background-800 transition-all duration-200 ease-in-out {className}"
+	class="bg-background-800 relative cursor-pointer overflow-hidden rounded-md transition-all duration-200 ease-in-out select-none {className}"
 	onmousedown={createRipple}
 	onclick={onClick}
 	{...restProps}
 >
-	<span class="relative z-10 flex flex-row items-center justify-center p-1 {wrapperClass}">
+	<span class="relative flex flex-row items-center justify-center p-1 {wrapperClass}">
 		{@render children?.()}
 	</span>
 
 	<div class="pointer-events-none absolute inset-0 overflow-hidden">
 		{#each ripples as ripple (ripple.id)}
 			<span
-				class="animate-ripple absolute -translate-x-1/2 -translate-y-1/2 transform rounded-full opacity-0"
+				class="animate-ripple absolute rounded-full opacity-0"
 				style="
 					left: {ripple.x}px; 
 					top: {ripple.y}px; 

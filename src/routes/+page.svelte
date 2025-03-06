@@ -76,7 +76,7 @@
 </div>
 
 <div class="flex min-h-screen flex-col py-10">
-	<div class="mx-5 flex flex-grow flex-col items-center justify-center gap-5">
+	<div class="mx-5 flex grow flex-col items-center justify-center gap-5">
 		<div class="w-fit flex-col rounded-lg bg-background-900 p-6">
 			<div class="flex flex-row items-end justify-between gap-16">
 				<div class="flex flex-row items-end">
@@ -86,13 +86,13 @@
 
 				<img
 					src="https://avatars.githubusercontent.com/u/67065165"
-					class="mb-3 ml-3 max-w-16 rounded-sm shadow-2xl"
+					class="mb-3 ml-3 max-w-16 rounded-xs shadow-2xl"
 					alt="pfp"
 				/>
 			</div>
 
 			<span class="flex flex-row items-center gap-1">
-				developer/software engineer from <BulgarianFlag className="rounded" /> bulgaria
+				developer/software engineer from <BulgarianFlag className="rounded-sm" /> bulgaria
 			</span>
 		</div>
 
