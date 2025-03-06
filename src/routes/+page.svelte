@@ -94,11 +94,11 @@
 			</span>
 		</div>
 
-		<div class="w-fit rounded-lg bg-background-900 p-8">
-			<span class="text-lg font-bold">toolbox</span>
+		<div class="flex w-fit flex-col gap-1 rounded-lg bg-background-900 p-8">
+			<span class="mb-2 text-center text-lg font-bold">toolbox</span>
 
 			{#each tools as sg}
-				<div class="flex w-full flex-row items-center justify-between gap-2">
+				<div class="flex w-full flex-row items-center justify-between gap-16">
 					<div class="flex flex-row items-center justify-start gap-2">
 						{#each sg.items as sk}
 							<span class="flex flex-row items-center gap-1">
