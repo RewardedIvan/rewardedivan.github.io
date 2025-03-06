@@ -31,7 +31,9 @@
 	</div>
 {/if}
 
-<div class="flex flex-row justify-between rounded-b-lg bg-background-900 p-4">
+<div
+	class="sticky top-0 flex flex-row justify-between rounded-b-lg bg-background-900 p-4 shadow-md shadow-background-950"
+>
 	<div class="flex flex-row items-center gap-2">
 		{#snippet txt(str: string)}
 			<span
