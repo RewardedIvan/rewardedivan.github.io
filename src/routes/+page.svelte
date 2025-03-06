@@ -102,10 +102,7 @@
 					<div class="flex flex-row items-center justify-start gap-2">
 						{#each sg.items as sk}
 							<span class="flex flex-row items-center gap-1">
-								<img
-									src="/icons/tools/{sg.name}/{!sk.icon ? sk.name : sk.icon}.svg"
-									alt={sk.name}
-								/>
+								<img src="/icons/tools/{!sk.icon ? sk.name : sk.icon}.svg" alt={sk.name} />
 								{sk.name}
 							</span>
 						{/each}
