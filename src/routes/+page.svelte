@@ -24,14 +24,14 @@
 		class="absolute bottom-0 right-0 m-3"
 		transition:slide={{ axis: 'x', easing: expoInOut, duration: 500 }}
 	>
-		<div role="alert" class="flex flex-row gap-2 rounded-lg bg-base-500 p-3">
+		<div role="alert" class="flex flex-row gap-2 rounded-lg bg-background-800 p-3">
 			<ClipboardIcon fill="#ffffff" />
 			<span>Copied!</span>
 		</div>
 	</div>
 {/if}
 
-<div class="flex flex-row justify-between rounded-b-lg bg-base-500 p-4">
+<div class="flex flex-row justify-between rounded-b-lg bg-background-900 p-4">
 	<div class="flex flex-row items-center gap-2">
 		{#snippet txt(str: string)}
 			<span
@@ -75,7 +75,7 @@
 
 <div class="flex min-h-screen flex-col py-10">
 	<div class="mx-5 flex flex-grow flex-col items-center justify-center gap-5">
-		<div class="w-fit flex-col rounded-lg bg-base-700 p-12">
+		<div class="w-fit flex-col rounded-lg bg-background-900 p-6">
 			<img
 				src="https://avatars.githubusercontent.com/u/67065165"
 				class="max-w-sm rounded-lg shadow-2xl"
@@ -85,7 +85,7 @@
 			<div>
 				<div class="flex flex-row items-end">
 					<h1 class="text-5xl font-bold">int4_t</h1>
-					<span class="text-sm text-slate-500">aka. rewardedivan</span>
+					<span class="text-sm text-indigo-500">aka. rewardedivan</span>
 				</div>
 
 				<span class="flex flex-row items-center gap-1">
@@ -94,7 +94,7 @@
 			</div>
 		</div>
 
-		<div class="w-fit rounded-lg bg-base-700 p-8">
+		<div class="w-fit rounded-lg bg-background-900 p-8">
 			<span class="text-lg font-bold">toolbox</span>
 
 			{#each tools as sg}
@@ -111,14 +111,14 @@
 						{/each}
 					</div>
 
-					<span class="text-slate-500">{sg.name}</span>
+					<span class="text-indigo-500">{sg.name}</span>
 				</div>
 			{/each}
 		</div>
 	</div>
 </div>
 
-<footer class="bg-base-400 p-10">
+<footer class="bg-background-900 p-10">
 	<nav>
 		<h6>LEGAL DISCLAIMER</h6>
 		<span>

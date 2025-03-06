@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import typography from '@tailwindcss/typography';
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -6,32 +7,36 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				base: {
-					100: '#050505',
-					200: '#080808',
-					300: '#0A0A0A',
-					400: '#0D0D0D',
-					500: '#0F0F0F',
-					600: '#121212',
-					700: '#141414',
-					800: '#171717',
-					900: '#1A1A1A'
+				background: {
+					50: '#B5B5B5',
+					100: '#ACACAC',
+					200: '#9A9A9A',
+					300: '#888888',
+					400: '#777777',
+					500: '#656565',
+					600: '#535353',
+					700: '#414141',
+					800: '#2F2F2F',
+					900: '#1D1D1D',
+					950: '#141414'
 				},
 
-				primary: {
-					100: '#13398C',
-					200: '#143E99',
-					300: '#1644A6',
-					400: '#1849B3',
-					500: '#1A4EBF',
-					600: '#1B53CC',
-					700: '#1D58D9',
-					800: '#1F5EE6',
-					900: '#2063F2'
+				foreground: {
+					50: '#A8A8A8',
+					100: '#ADADAD',
+					200: '#B8B8B8',
+					300: '#BFBFBF',
+					400: '#C9C9C9',
+					500: '#D4D4D4',
+					600: '#DEDEDE',
+					700: '#E8E8E8',
+					800: '#F0F0F0',
+					900: '#FAFAFA',
+					950: '#FFFFFF'
 				}
 			}
 		}
 	},
 
-	plugins: [require('@tailwindcss/typography')]
+	plugins: [typography]
 } as Config;
