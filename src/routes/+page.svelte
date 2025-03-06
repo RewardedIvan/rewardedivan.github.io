@@ -76,22 +76,22 @@
 <div class="flex min-h-screen flex-col py-10">
 	<div class="mx-5 flex flex-grow flex-col items-center justify-center gap-5">
 		<div class="w-fit flex-col rounded-lg bg-background-900 p-6">
-			<img
-				src="https://avatars.githubusercontent.com/u/67065165"
-				class="max-w-sm rounded-lg shadow-2xl"
-				alt="pfp"
-			/>
-
-			<div>
+			<div class="flex flex-row items-end justify-between gap-16">
 				<div class="flex flex-row items-end">
 					<h1 class="text-5xl font-bold">int4_t</h1>
 					<span class="text-sm text-indigo-500">aka. rewardedivan</span>
 				</div>
 
-				<span class="flex flex-row items-center gap-1">
-					developer/software engineer from <BulgarianFlag className="rounded" /> bulgaria
-				</span>
+				<img
+					src="https://avatars.githubusercontent.com/u/67065165"
+					class="mb-3 ml-3 max-w-16 rounded-sm shadow-2xl"
+					alt="pfp"
+				/>
 			</div>
+
+			<span class="flex flex-row items-center gap-1">
+				developer/software engineer from <BulgarianFlag className="rounded" /> bulgaria
+			</span>
 		</div>
 
 		<div class="w-fit rounded-lg bg-background-900 p-8">
