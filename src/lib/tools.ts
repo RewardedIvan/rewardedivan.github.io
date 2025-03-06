@@ -37,10 +37,16 @@ export const tools: ToolGroup[] = [
 	},
 	{
 		name: 'languages',
-		items: [{ name: 'Go' }, { name: 'Java' }, { name: 'C#', icon: 'CS' }, { name: 'Python' }]
+		items: [
+			{ name: 'Go' },
+			{ name: 'Java' },
+			{ name: 'C#', icon: 'CS' },
+			{ name: 'Python' },
+			{ name: 'Rust' }
+		]
 	},
 	{
 		name: 'lowlevel',
-		items: [{ name: 'C' }, { name: 'C++', icon: 'CPP' }]
+		items: [{ name: 'C' }, { name: 'C++', icon: 'CPP' }, { name: 'Zig' }]
 	}
 ];
