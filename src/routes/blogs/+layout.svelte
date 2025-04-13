@@ -18,4 +18,6 @@
 	<div class="flex w-full flex-col gap-12">
 		{@render children?.()}
 	</div>
+
+	<!-- TODO: comment section and dislikes on serverless db... maybe? -->
 </div>
