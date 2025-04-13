@@ -2,6 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import { expoInOut } from 'svelte/easing';
 	import { tools } from '$lib/tools';
+	import { blogs } from './blogs';
 	import Button from './Button.svelte';
 
 	import ClipboardIcon from '$lib/icons/material/ClipboardIcon.svelte';
@@ -21,10 +22,10 @@
 
 {#if copied}
 	<div
-		class="absolute bottom-0 right-0 m-3"
+		class="absolute right-0 bottom-0 m-3"
 		transition:slide={{ axis: 'x', easing: expoInOut, duration: 500 }}
 	>
-		<div role="alert" class="flex flex-row gap-2 rounded-lg bg-background-800 p-3">
+		<div role="alert" class="bg-background-800 flex flex-row gap-2 rounded-lg p-3">
 			<ClipboardIcon fill="#ffffff" />
 			<span>Copied!</span>
 		</div>
@@ -32,7 +33,7 @@
 {/if}
 
 <div
-	class="sticky top-0 flex flex-row justify-between rounded-b-lg bg-background-900 p-4 shadow-md shadow-background-950"
+	class="bg-background-900 shadow-background-950 sticky top-0 flex flex-row justify-between rounded-b-lg p-4 shadow-md"
 >
 	<div class="flex flex-row items-center gap-2">
 		{#snippet txt(str: string)}
@@ -75,9 +76,10 @@
 	</div>
 </div>
 
-<div class="flex min-h-screen flex-col py-10">
+<div class="grid min-h-screen gap-24 p-10 2xl:grid-cols-3">
+	<div></div>
 	<div class="mx-5 flex grow flex-col items-center justify-center gap-5">
-		<div class="w-fit flex-col rounded-lg bg-background-900 p-6">
+		<div class="bg-background-900 w-fit flex-col rounded-lg p-6">
 			<div class="flex flex-row items-end justify-between gap-16">
 				<div class="flex flex-row items-end">
 					<h1 class="text-5xl font-bold">int4_t</h1>
@@ -96,7 +98,7 @@
 			</span>
 		</div>
 
-		<div class="flex w-fit flex-col gap-1 rounded-lg bg-background-900 p-8">
+		<div class="bg-background-900 flex w-fit flex-col gap-1 rounded-lg p-8">
 			<span class="mb-2 text-center text-lg font-bold">toolbox</span>
 
 			{#each tools as sg}
@@ -114,6 +116,20 @@
 				</div>
 			{/each}
 		</div>
+	</div>
+	<div
+		class="bg-background-900 flex h-max w-full flex-col self-start justify-self-end rounded-lg p-3 2xl:w-max"
+	>
+		<span class="text-xl font-bold">blogs</span>
+
+		{#each blogs as blog}
+			<span class="flex flex-row justify-between gap-14">
+				<a href={`/blogs/${blog.urlTitle}`} class="text-indigo-500 underline underline-offset-1">
+					{blog.title}
+				</a>
+				<span class="text-gray-400">{blog.date}</span>
+			</span>
+		{/each}
 	</div>
 </div>
 
