@@ -10,6 +10,7 @@
 	import DiscordIcon from '$lib/icons/brand/DiscordIcon.svelte';
 	import XIcon from '$lib/icons/brand/XIcon.svelte';
 	import GithubIcon from '$lib/icons/brand/GithubIcon.svelte';
+	import SteamIcon from '$lib/icons/brand/SteamIcon.svelte';
 	import BulgarianFlag from '$lib/icons/flag/BulgarianFlag.svelte';
 
 	let copied = $state(false);
@@ -57,6 +58,11 @@
 		<Button class="group text-xl" href="https://github.com/RewardedIvan">
 			<GithubIcon />
 			{@render txt('github')}
+		</Button>
+
+		<Button class="group text-xl" href="https://steamcommunity.com/id/int4_t">
+			<SteamIcon />
+			{@render txt('steam')}
 		</Button>
 
 		<Button
