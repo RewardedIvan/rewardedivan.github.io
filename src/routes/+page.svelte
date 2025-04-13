@@ -3,7 +3,7 @@
 	import { expoInOut } from 'svelte/easing';
 	import { tools } from '$lib/tools';
 	import { blogs } from './blogs';
-	import Button from './Button.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	import ClipboardIcon from '$lib/icons/material/ClipboardIcon.svelte';
 	import KeyIcon from '$lib/icons/material/KeyIcon.svelte';

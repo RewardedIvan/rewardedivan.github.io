@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BackArrow from '$lib/icons/material/BackArrow.svelte';
 	import type { Snippet } from 'svelte';
-	import Button from '../Button.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	interface Props {
 		children?: Snippet;
