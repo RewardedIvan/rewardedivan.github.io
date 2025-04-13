@@ -44,7 +44,7 @@
 			class="text-indigo-500">that one cast</a
 		>
 		from <Code>void*</Code> to <Code>ImTextureID</Code> because the build script clones the master branch
-		of imgui, which at some point had a breaking change to <Code>ImGui::Image</Code>) (and the git
+		of ImGui, which at some point had a breaking change to <Code>ImGui::Image</Code>) (and the git
 		history is just...) (maybe i shouldn't have made fun of Cherno's code review reviewees)
 	</p>
 	<div class="flex flex-row gap-2">
@@ -83,7 +83,7 @@
 		but it's a nice language. (i'll give it another try some time)
 	</p>
 	<p>
-		throughout that perior i actually learnt how 3D projections work, models, instancing and that's
+		throughout that period i actually learnt how 3D projections work, models, instancing and that's
 		about it.
 	</p>
 	<p>
