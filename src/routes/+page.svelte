@@ -76,12 +76,12 @@
 	</div>
 </div>
 
-<div class="grid min-h-screen gap-24 p-10 2xl:grid-cols-3">
+<div class="grid min-h-screen gap-24 overflow-hidden sm:p-2 2xl:grid-cols-3 2xl:p-10">
 	<div></div>
-	<div class="mx-5 flex grow flex-col items-center justify-center gap-5">
-		<div class="bg-background-900 w-fit flex-col rounded-lg p-6">
+	<div class="flex grow flex-col items-center justify-center gap-5">
+		<div class="bg-background-900 w-fit flex-col rounded-lg p-4">
 			<div class="flex flex-row items-end justify-between gap-16">
-				<div class="flex flex-row items-end">
+				<div class="flex flex-row flex-wrap items-end">
 					<h1 class="text-5xl font-bold">int4_t</h1>
 					<span class="text-sm text-indigo-500">aka. rewardedivan</span>
 				</div>
@@ -98,23 +98,30 @@
 			</span>
 		</div>
 
-		<div class="bg-background-900 flex w-fit flex-col gap-1 rounded-lg p-8">
+		<div class="bg-background-900 flex w-full flex-col gap-1 rounded-lg p-4">
 			<span class="mb-2 text-center text-lg font-bold">toolbox</span>
 
-			{#each tools as sg}
-				<div class="flex w-full flex-row items-center justify-between gap-16">
-					<div class="flex flex-row items-center justify-start gap-2">
-						{#each sg.items as sk}
-							<span class="flex flex-row items-center gap-1">
-								<img src="/icons/tools/{!sk.icon ? sk.name : sk.icon}.svg" alt={sk.name} />
-								{sk.name}
-							</span>
-						{/each}
+			<div class="grid grid-cols-1">
+				{#each tools as tg, i}
+					<div
+						class="flex max-w-full flex-row flex-wrap items-center justify-between gap-4 rounded p-2 {i %
+							2 ===
+						0
+							? 'bg-background-800'
+							: 'bg-background-900'}"
+					>
+						<div class="flex flex-wrap gap-2">
+							{#each tg.items as tk}
+								<div class="flex min-w-max flex-row items-center gap-1">
+									<img src="/icons/tools/{!tk.icon ? tk.name : tk.icon}.svg" alt={tk.name} />
+									<span class="whitespace-nowrap">{tk.name}</span>
+								</div>
+							{/each}
+						</div>
+						<span class="grow text-end text-indigo-500">{tg.name}</span>
 					</div>
-
-					<span class="text-indigo-500">{sg.name}</span>
-				</div>
-			{/each}
+				{/each}
+			</div>
 		</div>
 	</div>
 	<div
