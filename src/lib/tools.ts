@@ -23,7 +23,8 @@ export const tools: ToolGroup[] = [
 			{ name: 'Bash', icon: 'Terminal' },
 			{ name: 'Batch', icon: 'Terminal' },
 			{ name: 'Lua' },
-			{ name: 'Luau' }
+			{ name: 'Luau' },
+			{ name: 'Python' }
 		]
 	},
 	{
@@ -36,17 +37,17 @@ export const tools: ToolGroup[] = [
 		]
 	},
 	{
-		name: 'languages',
-		items: [
-			{ name: 'Go' },
-			{ name: 'Java' },
-			{ name: 'C#', icon: 'CS' },
-			{ name: 'Python' },
-			{ name: 'Rust' }
-		]
+		name: 'vm',
+		items: [{ name: 'Java' }, { name: 'C#', icon: 'CS' }]
 	},
 	{
-		name: 'lowlevel',
-		items: [{ name: 'C' }, { name: 'C++', icon: 'CPP' }, { name: 'Zig' }]
+		name: 'native',
+		items: [
+			{ name: 'C' },
+			{ name: 'C++', icon: 'CPP' },
+			{ name: 'Zig' },
+			{ name: 'Rust' },
+			{ name: 'Go' }
+		]
 	}
 ];
