@@ -10,12 +10,12 @@
 	let { children }: Props = $props();
 </script>
 
-<div class="flex flex-row items-start gap-8 p-4">
+<div class="xs:px-2 flex flex-row items-start gap-8 py-4 sm:px-8 md:px-16 lg:px-28 2xl:px-48">
 	<Button href="/" class="mr-auto">
 		<BackArrow />
 	</Button>
 
-	<div class="flex w-full flex-col gap-12">
+	<div class="flex w-full flex-col gap-12 leading-7">
 		{@render children?.()}
 	</div>
 
