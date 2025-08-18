@@ -10,8 +10,8 @@
 	let { children }: Props = $props();
 </script>
 
-<div class="xs:px-2 flex flex-row items-start gap-8 py-4 sm:px-8 md:px-16 lg:px-28 2xl:px-48">
-	<Button href="/" class="mr-auto">
+<div class="flex flex-row items-start gap-8">
+	<Button href="/" class="mr-auto" overrideHref>
 		<BackArrow />
 	</Button>
 

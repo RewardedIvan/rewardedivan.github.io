@@ -32,7 +32,7 @@ export const tools: ToolGroup[] = [
 		items: [{ name: 'Vim' }, { name: 'Git' }, { name: 'GNU/Linux', icon: 'Kernel' }]
 	},
 	{
-		name: 'vm',
+		name: 'il',
 		items: [{ name: 'Java' }, { name: 'C#', icon: 'CS' }]
 	},
 	{

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
 	interface Props {
@@ -6,6 +7,7 @@
 		wrapperClass?: string;
 		copy?: string;
 		href?: string;
+		overrideHref?: true;
 	}
 
 	let {
@@ -15,6 +17,7 @@
 		wrapperClass,
 		copy,
 		href,
+		overrideHref,
 		...restProps
 	}: Props & HTMLButtonAttributes = $props();
 
@@ -44,7 +47,11 @@
 		}
 
 		if (href) {
-			window.open(href, '_blank');
+			if (overrideHref) {
+				goto(href);
+			} else {
+				window.open(href, '_blank');
+			}
 		}
 
 		restProps.onclick?.(event);
@@ -53,7 +60,7 @@
 
 <button
 	bind:this={buttonElement}
-	class="bg-surface-200 relative cursor-pointer overflow-hidden rounded-md transition-all duration-200 ease-in-out select-none {className}"
+	class="bg-surface-100 hover:bg-surface-200 relative cursor-pointer overflow-hidden rounded-md transition-all duration-200 ease-in-out select-none {className}"
 	onmousedown={createRipple}
 	onclick={onClick}
 	{...restProps}

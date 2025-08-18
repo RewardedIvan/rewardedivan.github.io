@@ -9,7 +9,7 @@
 		just vanilla html + js + <a href="https://expressjs.com/" class="text-gray-400">Express</a> and
 		the vast apis <a href="https://nodejs.org/en" class="text-green-500">Node.js</a> had to offer
 	</p>
-	<i class="text-sm text-gray-500">screenshot from my old "rice" on github</i>
+	<i class="text-muted text-sm">screenshot from my old "rice" on github</i>
 	<img src="/blog-res/frameworks/old_ss.png" alt="old_ss" />
 	<p>oh just how innocent was i</p>
 	<p>
@@ -49,7 +49,7 @@
 		<a href="https://www.minecraft.net/en-us" class="text-green-500">Minecraft</a> server panel, mostly
 		for fun and because i wanted to have my own and not use somebody else's.
 	</p>
-	<p class="text-sm text-gray-500">(please don't question my logic, there is none)</p>
+	<p class="text-muted text-sm">(please don't question my logic, there is none)</p>
 	<p>
 		oh and by that time something must have gotten into my head, because I WENT CRAZY WITH THE
 		CLASSES like
@@ -87,14 +87,14 @@
 		but at the time it just DIDNT work and there was no world in which i would put my auth code in
 		layout.tsx and soooo i ended up searching for another framework..
 	</p>
-	<p class="text-sm text-gray-500">(again please don't question my logic, there is none)</p>
+	<p class="text-muted text-sm">(again please don't question my logic, there is none)</p>
 </Section>
 
 <Section title="svelte" id="svelte">
 	<p>then i discovered <a href="https://svelte.dev/" class="text-orange-600">Svelte/Kit</a></p>
 	<img src="/blog-res/frameworks/trying_svelte.png" alt="trying svelte" />
 	<u
-		><a href="https://youtu.be/H1eEFfAkIik?t=161" class="text-sm text-gray-500"
+		><a href="https://youtu.be/H1eEFfAkIik?t=161" class="text-muted text-sm"
 			>taken from FireShip's video</a
 		></u
 	>
@@ -126,7 +126,7 @@
 	<img src="/blog-res/frameworks/compile_times.png" alt="11 second compile times" />
 	<b
 		>NOTE: i was using the react compiler
-		<span class="text-gray-500">i heard from Theo watching and thought i'd try it</span></b
+		<span class="text-muted">i heard from Theo watching and thought i'd try it</span></b
 	>
 	<p>turns out next doesn't like windows, well windows sucks in general, but STILL</p>
 	<p>
@@ -141,9 +141,9 @@
 	</p>
 	<p>but either i didn't know that and didn't think to try it at the time</p>
 	<p>so i literally crashed out on react at 3am (sob)</p>
-	<p class="text-sm text-gray-500">please don't read this</p>
+	<p class="text-muted text-sm">please don't read this</p>
 	<img src="/blog-res/frameworks/rant.png" alt={'"little" rant'} />
-	<p class="text-sm text-gray-500">i am wrong about a multitude of things in that "rant"</p>
+	<p class="text-muted text-sm">i am wrong about a multitude of things in that "rant"</p>
 	<p>
 		but atleast that project was sort of finished, so good job me for persevering the terror that
 		was micro$oft windows
@@ -153,7 +153,7 @@
 <Section title="imagine a framework..." id="imagine-a-framework">
 	<p>i actually wanted to try my idea with compiling JSX to the traditional vanilla JS way</p>
 	<u
-		><a href="https://youtu.be/XAGCULPO_DE?t=3366" class="text-sm text-gray-500"
+		><a href="https://youtu.be/XAGCULPO_DE?t=3366" class="text-muted text-sm"
 			>also i was inspired by Tsoding</a
 		></u
 	>

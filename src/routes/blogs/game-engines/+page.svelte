@@ -31,13 +31,13 @@
 		<a href="https://opentk.net/" class="text-indigo-500">OpenTK + C#</a>) i mean to be fair it does
 		build and run if you follow my readme.
 		<a
-			class="text-xs text-gray-500"
+			class="text-muted text-xs"
 			href="https://youtube.com/playlist?list=PLlrATfBNZ98f6Z1cDNeMLL3eXaRk1WCxK"
 		>
 			unlike most of Cherno's code reviews (no hard feelings)
 		</a>
 	</p>
-	<p class="mt-2 text-sm text-gray-500">
+	<p class="text-muted mt-2 text-sm">
 		(EXCEPT that you need to change
 		<a
 			href="https://github.com/RewardedIvan/bk/blob/80332ab3d3c803e9f66188405e6b29ce069cd010/examples/src/overlays/OpenGL.cpp#L48"
@@ -78,7 +78,7 @@
 	</p>
 	<p>
 		at one point i tried <a href="https://rust-lang.org/" class="text-rose-600">Rust</a>
-		<span class="text-xs text-gray-500">no not the game lol</span>
+		<span class="text-muted text-xs">no not the game lol</span>
 		but that experience deserves it's own blog post, conclusion is that i didn't really like the crates,
 		but it's a nice language. (i'll give it another try some time)
 	</p>

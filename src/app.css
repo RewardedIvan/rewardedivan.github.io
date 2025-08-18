@@ -90,6 +90,8 @@
 	--color-mantle: var(--catppuccin-mantle);
 	--color-crust: var(--catppuccin-crust);
 
+	--color-muted: var(--catppuccin-subtext-100);
+
 	--font-sans: 'JetBrains Mono Variable';
 	--font-mono: 'JetBrains Mono Variable';
 	--font-serif: 'JetBrains Mono Variable';
