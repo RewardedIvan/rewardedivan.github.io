@@ -29,12 +29,7 @@ export const tools: ToolGroup[] = [
 	},
 	{
 		name: 'tools',
-		items: [
-			{ name: 'Vim' },
-			{ name: 'Git' },
-			{ name: 'GNU/Linux', icon: 'Kernel' },
-			{ name: 'Arch' }
-		]
+		items: [{ name: 'Vim' }, { name: 'Git' }, { name: 'GNU/Linux', icon: 'Kernel' }]
 	},
 	{
 		name: 'vm',

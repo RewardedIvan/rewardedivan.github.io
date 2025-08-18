@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import '../app.css';
-	import '@fontsource/jetbrains-mono/400-italic.css';
+	import '@fontsource-variable/jetbrains-mono';
 
 	interface Props {
 		children?: Snippet;

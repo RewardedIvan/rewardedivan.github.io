@@ -26,6 +26,10 @@
 	--color-foreground-800: #f0f0f0;
 	--color-foreground-900: #fafafa;
 	--color-foreground-950: #ffffff;
+
+	--font-sans: 'JetBrains Mono Variable';
+	--font-mono: 'JetBrains Mono Variable';
+	--font-serif: 'JetBrains Mono Variable';
 }
 
 @layer base {
@@ -36,8 +40,4 @@
 	::file-selector-button {
 		border-color: var(--color-gray-200, currentColor);
 	}
-}
-
-* {
-	font-family: 'JetBrains Mono';
 }

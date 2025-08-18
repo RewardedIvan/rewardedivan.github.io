@@ -3,6 +3,7 @@
 	import { expoInOut } from 'svelte/easing';
 	import { tools } from '$lib/tools';
 	import { blogs } from './blogs';
+	import Relative from './Relative.svelte';
 	import Button from '$lib/components/Button.svelte';
 
 	import ClipboardIcon from '$lib/icons/material/ClipboardIcon.svelte';
@@ -11,7 +12,6 @@
 	import XIcon from '$lib/icons/brand/XIcon.svelte';
 	import GithubIcon from '$lib/icons/brand/GithubIcon.svelte';
 	import SteamIcon from '$lib/icons/brand/SteamIcon.svelte';
-	import BulgarianFlag from '$lib/icons/flag/BulgarianFlag.svelte';
 
 	let copied = $state(false);
 	$effect(() => {
@@ -99,9 +99,25 @@
 				/>
 			</div>
 
-			<span class="flex flex-row items-center gap-1">
-				developer/software engineer from <BulgarianFlag className="rounded-sm" /> bulgaria
-			</span>
+			<div class="h-4"></div>
+
+			<p>developer/software engineer from 🇧🇬 bulgaria</p>
+			<p>
+				<Relative from={new Date('2011 jul 18')} />yo
+				<span class="text-blue-400" style="-webkit-text-stroke-width: 0.5px;">&male;</span>
+			</p>
+			<p class="flex flex-row items-center gap-1">
+				dualbooting <img src="/icons/me/Windows.svg" alt="windows" />
+				<img src="/icons/me/Arch.svg" alt="arch linux" /> on my laptop and desktop
+			</p>
+			<p class="flex flex-row items-center gap-1">
+				running <img src="/icons/me/Debian.svg" alt="debian" /> on my 2 home servers
+			</p>
+			<p>xbox choose my old username</p>
+			<p>free software advocate</p>
+			<p class="flex flex-row items-center gap-1">
+				i download my music <img src="/icons/me/Foobar2000-bright.svg" alt="foobar2000" class="" />
+			</p>
 		</div>
 
 		<div class="bg-background-900 flex w-full flex-col gap-1 rounded-lg p-4">
