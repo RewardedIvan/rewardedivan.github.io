@@ -53,7 +53,7 @@
 
 <button
 	bind:this={buttonElement}
-	class="bg-background-800 relative cursor-pointer overflow-hidden rounded-md transition-all duration-200 ease-in-out select-none {className}"
+	class="bg-surface-200 relative cursor-pointer overflow-hidden rounded-md transition-all duration-200 ease-in-out select-none {className}"
 	onmousedown={createRipple}
 	onclick={onClick}
 	{...restProps}

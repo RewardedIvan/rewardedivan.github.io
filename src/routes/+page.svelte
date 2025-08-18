@@ -12,6 +12,7 @@
 	import XIcon from '$lib/icons/brand/XIcon.svelte';
 	import GithubIcon from '$lib/icons/brand/GithubIcon.svelte';
 	import SteamIcon from '$lib/icons/brand/SteamIcon.svelte';
+	import Foobar2000 from '$lib/icons/brand/Foobar2000.svelte';
 
 	let copied = $state(false);
 	$effect(() => {
@@ -26,7 +27,7 @@
 		class="absolute right-0 bottom-0 m-3"
 		transition:slide={{ axis: 'x', easing: expoInOut, duration: 500 }}
 	>
-		<div role="alert" class="bg-background-800 flex flex-row gap-2 rounded-lg p-3">
+		<div role="alert" class="bg-surface-100 flex flex-row gap-2 rounded-lg p-3">
 			<ClipboardIcon fill="#ffffff" />
 			<span>Copied!</span>
 		</div>
@@ -34,7 +35,7 @@
 {/if}
 
 <div
-	class="bg-background-900 shadow-background-950 sticky top-0 flex flex-row justify-between rounded-b-lg p-4 shadow-md"
+	class="bg-surface-100 shadow-mantle sticky top-0 flex flex-row justify-between rounded-b-lg p-4 shadow-md"
 >
 	<div class="flex flex-row items-center gap-2">
 		{#snippet txt(str: string)}
@@ -85,7 +86,7 @@
 <div class="grid min-h-screen gap-24 overflow-hidden sm:p-2 2xl:grid-cols-3 2xl:p-10">
 	<div></div>
 	<div class="flex grow flex-col items-center justify-center gap-5">
-		<div class="bg-background-900 w-fit flex-col rounded-lg p-4">
+		<div class="bg-surface-100 w-fit flex-col rounded-lg p-4">
 			<div class="flex flex-row items-end justify-between gap-16">
 				<div class="flex flex-row flex-wrap items-end">
 					<h1 class="text-5xl font-bold">int4_t</h1>
@@ -116,11 +117,11 @@
 			<p>xbox choose my old username</p>
 			<p>free software advocate</p>
 			<p class="flex flex-row items-center gap-1">
-				i download my music <img src="/icons/me/Foobar2000-bright.svg" alt="foobar2000" class="" />
+				i download my music <Foobar2000 />
 			</p>
 		</div>
 
-		<div class="bg-background-900 flex w-full flex-col gap-1 rounded-lg p-4">
+		<div class="bg-surface-100 flex w-full flex-col gap-1 rounded-lg p-4">
 			<span class="mb-2 text-center text-lg font-bold">toolbox</span>
 
 			<div class="grid grid-cols-1">
@@ -129,8 +130,8 @@
 						class="flex max-w-full flex-row flex-wrap items-center justify-between gap-4 rounded p-2 {i %
 							2 ===
 						0
-							? 'bg-background-800'
-							: 'bg-background-900'}"
+							? 'bg-surface-200'
+							: 'bg-transparent'}"
 					>
 						<div class="flex flex-wrap gap-2">
 							{#each tg.items as tk}
@@ -147,7 +148,7 @@
 		</div>
 	</div>
 	<div
-		class="bg-background-900 flex h-max w-full flex-col self-start justify-self-end rounded-lg p-3 2xl:w-max"
+		class="bg-surface-100 flex h-max w-full flex-col self-start justify-self-end rounded-lg p-3 2xl:w-max"
 	>
 		<span class="text-xl font-bold">blogs</span>
 
@@ -162,7 +163,7 @@
 	</div>
 </div>
 
-<footer class="bg-background-900 p-10">
+<footer class="bg-surface-100 p-10">
 	<nav>
 		<h6>LEGAL DISCLAIMER</h6>
 		<span>

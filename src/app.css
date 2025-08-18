@@ -2,34 +2,107 @@
 
 @plugin '@tailwindcss/typography';
 
-@theme {
-	--color-background-50: #b5b5b5;
-	--color-background-100: #acacac;
-	--color-background-200: #9a9a9a;
-	--color-background-300: #888888;
-	--color-background-400: #777777;
-	--color-background-500: #656565;
-	--color-background-600: #535353;
-	--color-background-700: #414141;
-	--color-background-800: #2f2f2f;
-	--color-background-900: #1d1d1d;
-	--color-background-950: #141414;
+:root {
+	--catppuccin-rosewater: #dc8a78;
+	--catppuccin-flamingo: #dd7878;
+	--catppuccin-pink: #ea76cb;
+	--catppuccin-mauve: #8839ef;
+	--catppuccin-red: #d20f39;
+	--catppuccin-maroon: #e64553;
+	--catppuccin-peach: #fe640b;
+	--catppuccin-yellow: #df8e1d;
+	--catppuccin-green: #40a02b;
+	--catppuccin-teal: #179299;
+	--catppuccin-sky: #04a5e5;
+	--catppuccin-sapphire: #209fb5;
+	--catppuccin-blue: #1e66f5;
+	--catppuccin-lavender: #7287fd;
+	--catppuccin-text: #4c4f69;
+	--catppuccin-subtext-200: #5c5f77;
+	--catppuccin-subtext-100: #6c6f85;
+	--catppuccin-overlay-300: #7c7f93;
+	--catppuccin-overlay-200: #8c8fa1;
+	--catppuccin-overlay-100: #9ca0b0;
+	--catppuccin-surface-300: #acb0be;
+	--catppuccin-surface-200: #bcc0cc;
+	--catppuccin-surface-100: #ccd0da;
+	--catppuccin-base: #eff1f5;
+	--catppuccin-mantle: #e6e9ef;
+	--catppuccin-crust: #dce0e8;
+}
 
-	--color-foreground-50: #a8a8a8;
-	--color-foreground-100: #adadad;
-	--color-foreground-200: #b8b8b8;
-	--color-foreground-300: #bfbfbf;
-	--color-foreground-400: #c9c9c9;
-	--color-foreground-500: #d4d4d4;
-	--color-foreground-600: #dedede;
-	--color-foreground-700: #e8e8e8;
-	--color-foreground-800: #f0f0f0;
-	--color-foreground-900: #fafafa;
-	--color-foreground-950: #ffffff;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--catppuccin-rosewater: #f5e0dc;
+		--catppuccin-flamingo: #f2cdcd;
+		--catppuccin-pink: #f5c2e7;
+		--catppuccin-mauve: #cba6f7;
+		--catppuccin-red: #f38ba8;
+		--catppuccin-maroon: #eba0ac;
+		--catppuccin-peach: #fab387;
+		--catppuccin-yellow: #f9e2af;
+		--catppuccin-green: #a6e3a1;
+		--catppuccin-teal: #94e2d5;
+		--catppuccin-sky: #89dceb;
+		--catppuccin-sapphire: #74c7ec;
+		--catppuccin-blue: #89b4fa;
+		--catppuccin-lavender: #b4befe;
+		--catppuccin-text: #cdd6f4;
+		--catppuccin-subtext-200: #bac2de;
+		--catppuccin-subtext-100: #a6adc8;
+		--catppuccin-overlay-300: #9399b2;
+		--catppuccin-overlay-200: #7f849c;
+		--catppuccin-overlay-100: #6c7086;
+		--catppuccin-surface-300: #585b70;
+		--catppuccin-surface-200: #45475a;
+		--catppuccin-surface-100: #313244;
+		--catppuccin-base: #1e1e2e;
+		--catppuccin-mantle: #181825;
+		--catppuccin-crust: #11111b;
+	}
+}
+
+@theme inline {
+	--color-rosewater: var(--catppuccin-rosewater);
+	--color-flamingo: var(--catppuccin-flamingo);
+	--color-pink: var(--catppuccin-pink);
+	--color-mauve: var(--catppuccin-mauve);
+	--color-red: var(--catppuccin-red);
+	--color-maroon: var(--catppuccin-maroon);
+	--color-peach: var(--catppuccin-peach);
+	--color-yellow: var(--catppuccin-yellow);
+	--color-green: var(--catppuccin-green);
+	--color-teal: var(--catppuccin-teal);
+	--color-sky: var(--catppuccin-sky);
+	--color-sapphire: var(--catppuccin-sapphire);
+	--color-blue: var(--catppuccin-blue);
+	--color-lavender: var(--catppuccin-lavender);
+	--color-text: var(--catppuccin-text);
+	--color-subtext-200: var(--catppuccin-subtext-200);
+	--color-subtext-100: var(--catppuccin-subtext-100);
+	--color-overlay-300: var(--catppuccin-overlay-300);
+	--color-overlay-200: var(--catppuccin-overlay-200);
+	--color-overlay-100: var(--catppuccin-overlay-100);
+	--color-surface-300: var(--catppuccin-surface-300);
+	--color-surface-200: var(--catppuccin-surface-200);
+	--color-surface-100: var(--catppuccin-surface-100);
+	--color-base: var(--catppuccin-base);
+	--color-mantle: var(--catppuccin-mantle);
+	--color-crust: var(--catppuccin-crust);
 
 	--font-sans: 'JetBrains Mono Variable';
 	--font-mono: 'JetBrains Mono Variable';
 	--font-serif: 'JetBrains Mono Variable';
+}
+
+body {
+	background: var(--catppuccin-base);
+	color: var(--catppuccin-text);
+}
+
+::selection {
+	background: var(--catppuccin-text);
+	color: var(--catppuccin-base);
 }
 
 @layer base {
