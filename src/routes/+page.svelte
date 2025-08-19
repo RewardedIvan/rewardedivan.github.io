@@ -14,6 +14,7 @@
 	import GithubIcon from '$lib/icons/brand/GithubIcon.svelte';
 	import SteamIcon from '$lib/icons/brand/SteamIcon.svelte';
 	import Foobar2000 from '$lib/icons/brand/Foobar2000.svelte';
+	import Clock from './Clock.svelte';
 
 	let copied = $state(false);
 	$effect(() => {
@@ -73,6 +74,7 @@
 		<p class="flex flex-row items-center gap-1">
 			i download my music <Foobar2000 />
 		</p>
+		<p>the time for me rn is <Clock tz="Europe/Sofia" /></p>
 	</div>
 
 	<div class="flex w-fit flex-col">
