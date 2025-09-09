@@ -148,6 +148,22 @@
 		but atleast that project was sort of finished, so good job me for persevering the terror that
 		was micro$oft windows
 	</p>
+	<br />
+	<p>
+		<b>UPDATE:</b> as of v15.5,
+		<a
+			href="https://nextjs.org/docs/app/api-reference/file-conventions/middleware#runtime"
+			class="underline">Next.JS has support for using the Node.js middleware runtime</a
+		> :confetti:
+	</p>
+	<p>and i learned (the hard way) that putting auth in the middleware is the old way to do it</p>
+	<p>
+		(when you try to use the cookies store in an action while having a middleware, it breaks in
+		builds, but not in dev for some reason?!?!)
+	</p>
+	<p>and instead you just put it in the server code..</p>
+	<p>also next is blazingly fast in builds, the difference between dev and build is crazy</p>
+	<p>dev being slow is probably because of my skill issues (or billy g)</p>
 </Section>
 
 <Section title="imagine a framework..." id="imagine-a-framework">
