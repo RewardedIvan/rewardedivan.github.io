@@ -160,11 +160,81 @@
 	</div>
 
 	<div>
-		<span class="text-xl font-bold">webring</span>
-		<div class="flex flex-row flex-wrap items-center gap-2">
+		<span class="text-xl font-bold"
+			>very cool people (i hope they don't hate me after i added their 83x31s without their
+			permission :sob:)</span
+		>
+		<div class="flex w-[720px] flex-row flex-wrap items-center gap-[2px]">
 			<a href="https://int4.cc">
-				<img style="image-rendering: pixelated;" src="/webring.png" alt="83x31" />
+				<img
+					width="88"
+					height="31"
+					style="image-rendering: pixelated;"
+					src="/webring.png"
+					alt="int4_t 83x31"
+				/>
 			</a>
+			<a href="https://n3tael.eu.org/assets/buttons/n3tael.gif">
+				<img
+					width="88"
+					height="31"
+					style="image-rendering: pixelated;"
+					src="https://n3tael.eu.org/assets/buttons/n3tael.gif"
+					alt="n3tael"
+				/>
+			</a>
+			<a href="https://vendicated.dev/">
+				<img
+					width="88"
+					height="31"
+					src="https://vendicated.dev/assets/81x33%20by%20arHSM%20%3C3/vee.gif"
+					alt="Vendicated"
+				/>
+			</a>
+			<a href="https://kibty.town/">
+				<img src="https://kibty.town/files/img/buttons/kibty.town-badge.gif" alt="kibty town" />
+			</a>
+			<a href="https://ezri.pet">
+				<img src="https://ezri.pet/assets/img/badges/ezri.png" alt="ezri" />
+			</a>
+			<a href="https://aubrey.rs" rel="noopener noreferrer" target="_blank">
+				<img alt="aubrey" height="31" width="88" src="/83x31/aubrey.webp" />
+			</a>
+			<a href="https://floppa.systems/">
+				<img height="31" width="88" src="https://floppa.systems/chxry.gif" alt="cherry" />
+			</a>
+			<a href="https://lily.pet/">
+				<img src="/83x31/lily.png" alt="lily.pet, cat! (points to cat)" />
+			</a>
+
+			<a href="steam://launch/70"
+				><img width="88" height="31" src="/83x31/hl.gif" alt="half-life" /></a
+			>
+			<a href="https://foobar2000.org/">
+				<img width="88" height="31" src="/83x31/foobar2000.png" alt="foobar2000" />
+			</a>
+			<a href="https://www.mozilla.org/en-US/firefox/">
+				<img width="88" height="31" src="/83x31/firefox4.gif" alt="firefox" />
+			</a>
+			<a href="https://neovim.io/"><img src="/83x31/neovim.gif" alt="made with neovim" /></a>
+			<a href="https://linux.org/"><img src="/83x31/linuxnow2.gif" alt="linux now! (2.5)" /></a>
+			<a href="https://debian.org/">
+				<img
+					src="/83x31/debian.gif"
+					alt="Powered by debian"
+					title="actually idk what is powered by debian LMAO"
+				/>
+			</a>
+			<a href="javascript:alert(1)"
+				><img
+					src="https://moondvsted.space/media/buttons/js-warning.png"
+					alt="Warning: Page contains JavaScript!"
+					title="the buttons prolly wont work without javascript :skull:"
+				/></a
+			>
+			<a href="https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish"
+				><img src="/83x31/hatems.gif" alt="i hate microsoft" /></a
+			>
 		</div>
 	</div>
 
