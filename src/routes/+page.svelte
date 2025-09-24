@@ -15,6 +15,7 @@
 	import SteamIcon from '$lib/icons/brand/SteamIcon.svelte';
 	import Foobar2000 from '$lib/icons/brand/Foobar2000.svelte';
 	import Clock from './Clock.svelte';
+	import AniListIcon from '$lib/icons/brand/AniListIcon.svelte';
 
 	let copied = $state(false);
 	$effect(() => {
@@ -135,6 +136,11 @@
 			<Button class="group text-xl" href="https://steamcommunity.com/id/int4_t">
 				<SteamIcon />
 				{@render txt('steam')}
+			</Button>
+
+			<Button class="group text-xl" href="https://anilist.co/user/int4/">
+				<AniListIcon />
+				{@render txt('anilist')}
 			</Button>
 
 			<Button
