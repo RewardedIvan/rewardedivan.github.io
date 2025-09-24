@@ -159,6 +159,15 @@
 		</div>
 	</div>
 
+	<div>
+		<span class="text-xl font-bold">webring</span>
+		<div class="flex flex-row flex-wrap items-center gap-2">
+			<a href="https://int4.cc">
+				<img style="image-rendering: pixelated;" src="/webring.png" alt="83x31" />
+			</a>
+		</div>
+	</div>
+
 	<footer class="mt-8">
 		<nav>
 			<h6>LEGAL DISCLAIMER</h6>
