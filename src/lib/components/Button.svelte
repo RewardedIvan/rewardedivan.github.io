@@ -8,6 +8,7 @@
 		copy?: string;
 		href?: string;
 		overrideHref?: true;
+		onClick?: (event: MouseEvent) => void;
 	}
 
 	let {
@@ -23,6 +24,7 @@
 
 	let ripples = $state<Array<{ id: number; x: number; y: number; size: number }>>([]);
 	let buttonElement: HTMLButtonElement | null = $state(null);
+	let copyInput: HTMLInputElement | null = $state(null);
 
 	function createRipple(event: MouseEvent) {
 		const button = buttonElement!;
@@ -43,7 +45,11 @@
 
 	async function onClick(event: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }) {
 		if (copy) {
-			await navigator.clipboard.writeText(copy);
+			try {
+				await navigator.clipboard.writeText(copy);
+			} catch (error) {
+				console.error(error);
+			}
 		}
 
 		if (href) {
@@ -54,7 +60,7 @@
 			}
 		}
 
-		restProps.onclick?.(event);
+		restProps.onClick?.(event);
 	}
 </script>
 
@@ -62,7 +68,7 @@
 	bind:this={buttonElement}
 	class="bg-surface-100 hover:bg-surface-200 relative cursor-pointer overflow-hidden rounded-md transition-all duration-200 ease-in-out select-none {className}"
 	onmousedown={createRipple}
-	onclick={onClick}
+	onclick={(e) => onClick(e)}
 	{...restProps}
 >
 	<span class="relative flex flex-row items-center justify-center p-1 {wrapperClass}">
@@ -85,6 +91,12 @@
 		{/each}
 	</div>
 </button>
+<input
+	type="text"
+	class="absolute top-0 left-0 -translate-x-[200vw]"
+	value={copy}
+	bind:this={copyInput}
+/>
 
 <style>
 	@keyframes ripple {

@@ -118,7 +118,7 @@
 				</span>
 			{/snippet}
 
-			<Button class="group text-xl" copy="int4_t" onclick={() => (copied = true)}>
+			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
 				<DiscordIcon />
 				{@render txt('discord')}
 			</Button>
@@ -146,7 +146,7 @@
 			<Button
 				class="group text-xl"
 				copy="A16B98815D0563295CB2795FA16F1618AADEFEDF"
-				onclick={() => (copied = true)}
+				onClick={() => (copied = true)}
 			>
 				<KeyIcon />
 				{@render txt('pgp')}
