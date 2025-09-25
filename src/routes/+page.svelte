@@ -160,17 +160,17 @@
 	</div>
 
 	<div>
-		<span class="text-xl font-bold"
-			>very cool people (i hope they don't hate me after i added their 83x31s without their
-			permission :sob:)</span
-		>
-		<div class="flex w-[720px] flex-row flex-wrap items-center gap-[2px]">
+		<span class="text-xl font-bold">very cool people</span>
+		<p class="text-muted text-sm">
+			i hope they don't hate me after i added their 83x31s without their permission :sob:
+		</p>
+		<div class="flex flex-row flex-wrap items-center gap-[2px] sm:w-[600px] md:w-[720px]">
 			<a href="https://int4.cc">
 				<img
 					width="88"
 					height="31"
 					style="image-rendering: pixelated;"
-					src="/webring.png"
+					src="/83x31.png"
 					alt="int4_t 83x31"
 				/>
 			</a>
