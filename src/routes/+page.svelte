@@ -174,7 +174,7 @@
 					alt="int4_t 83x31"
 				/>
 			</a>
-			<a href="https://n3tael.eu.org/assets/buttons/n3tael.gif">
+			<a href="https://n3tael.eu.org">
 				<img
 					width="88"
 					height="31"
