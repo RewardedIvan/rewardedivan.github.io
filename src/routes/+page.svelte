@@ -184,12 +184,7 @@
 				/>
 			</a>
 			<a href="https://vendicated.dev/">
-				<img
-					width="88"
-					height="31"
-					src="https://vendicated.dev/assets/81x33%20by%20arHSM%20%3C3/vee.gif"
-					alt="Vendicated"
-				/>
+				<img width="88" height="31" src="/83x31/vendicated.gif" alt="Vendicated" />
 			</a>
 			<a href="https://kibty.town/">
 				<img src="https://kibty.town/files/img/buttons/kibty.town-badge.gif" alt="kibty town" />
@@ -227,7 +222,7 @@
 			</a>
 			<a href="javascript:alert(1)"
 				><img
-					src="https://moondvsted.space/media/buttons/js-warning.png"
+					src="/83x31/js-warning.png"
 					alt="Warning: Page contains JavaScript!"
 					title="the buttons prolly wont work without javascript :skull:"
 				/></a
