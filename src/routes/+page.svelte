@@ -183,6 +183,9 @@
 					alt="n3tael"
 				/>
 			</a>
+			<a href="https://lumentae.dev">
+				<img src="https://lumentae.dev/lumentae.gif" alt="lumentae" title="lumentae" />
+			</a>
 			<a href="https://vendicated.dev/">
 				<img width="88" height="31" src="/88x31/vendicated.gif" alt="Vendicated" />
 			</a>
@@ -230,6 +233,9 @@
 			<a href="https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish"
 				><img src="/88x31/hatems.gif" alt="i hate microsoft" /></a
 			>
+			<a href="https://hackclub.com">
+				<img src="/88x31/hackclub.png" alt="hackclub" title="hackclub" />
+			</a>
 		</div>
 	</div>
 
