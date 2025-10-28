@@ -4,6 +4,7 @@
 	import { tools } from '$lib/tools';
 	import { blogs } from './blogs';
 	import Relative from './Relative.svelte';
+	import Clock from './Clock.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import type { PageProps } from './$types';
 
@@ -14,8 +15,10 @@
 	import GithubIcon from '$lib/icons/brand/GithubIcon.svelte';
 	import SteamIcon from '$lib/icons/brand/SteamIcon.svelte';
 	import Foobar2000 from '$lib/icons/brand/Foobar2000.svelte';
-	import Clock from './Clock.svelte';
 	import AniListIcon from '$lib/icons/brand/AniListIcon.svelte';
+	import OsuIcon from '$lib/icons/brand/OsuIcon.svelte';
+	import VRChatIcon from '$lib/icons/brand/VRChatIcon.svelte';
+	import RobloxIcon from '$lib/icons/brand/RobloxIcon.svelte';
 
 	let copied = $state(false);
 	$effect(() => {
@@ -136,6 +139,21 @@
 			<Button class="group text-xl" href="https://steamcommunity.com/id/int4_t">
 				<SteamIcon />
 				{@render txt('steam')}
+			</Button>
+
+			<Button class="group text-xl" href="https://osu.ppy.sh/users/20680063">
+				<OsuIcon />
+				{@render txt('osu')}
+			</Button>
+
+			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+				<VRChatIcon />
+				{@render txt('vrchat')}
+			</Button>
+
+			<Button class="group text-xl" href="https://roblox.com/users/4317632405/profile">
+				<RobloxIcon />
+				{@render txt('roblox')}
 			</Button>
 
 			<Button class="group text-xl" href="https://anilist.co/user/int4/">
