@@ -10,11 +10,9 @@
 	let bg = $state('');
 
 	if (browser) {
-		if (localStorage.getItem('ivanbg') == null) {
-			localStorage.setItem('ivanbg', data.bg[Math.floor(Math.random() * data.bg.length)]);
+		if (localStorage.getItem('ivanbg') != null) {
+			localStorage.removeItem('ivanbg');
 		}
-
-		bg = localStorage.getItem('ivanbg')!;
 	}
 
 	onMount(() => {
@@ -37,9 +35,9 @@
 	});
 </script>
 
-<div class="min-h-dvh bg-fixed" style:background-image="url(/bg/{bg})">
+<div class="min-h-dvh bg-cover bg-fixed bg-right-top" style:background-image="url(/bg/shiroko.jpg)">
 	<div
-		class="bg-base/80 dark:bg-base/50 flex min-h-dvh flex-col gap-8 px-8 py-8 backdrop-blur-sm lg:px-16"
+		class="bg-base/60 dark:bg-base/50 flex min-h-dvh flex-col gap-8 px-8 py-8 backdrop-blur-xs lg:px-16"
 	>
 		{@render children?.()}
 	</div>
