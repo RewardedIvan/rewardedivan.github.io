@@ -28,7 +28,75 @@
 	});
 
 	let { data }: PageProps = $props();
+
+	function mulberry32(seed: number) {
+		return function () {
+			seed |= 0;
+			seed = (seed + 0x6d2b79f5) | 0;
+			let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+			t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+			return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+		};
+	}
+
+	const rain = (() => {
+		const rng = mulberry32(12);
+
+		let arr = [];
+		let sum = 0;
+		while (sum < 100) {
+			const r = Math.floor(rng() * 5) + 2;
+			sum += r;
+			arr.push([Math.floor(rng() * 5), Math.floor(rng() * 100)]);
+		}
+		return arr;
+	})();
+
+	var lastRipple: [number, number] | null = null;
+	function onBodyClick(e: MouseEvent) {
+		if (lastRipple) {
+			// matematika.
+			const l = document.body.appendChild(document.createElement('div'));
+			l.className =
+				'line pointer-events-none absolute h-1 rounded-full bg-white/20 origin-top-left';
+			const padding = 10;
+			const x1 = lastRipple[0];
+			const y1 = lastRipple[1];
+			const x2 = e.layerX;
+			const y2 = e.layerY;
+			const length = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+			const angle = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI;
+			const dx = (x2 - x1) / length;
+			const dy = (y2 - y1) / length;
+			l.style.left = x1 + dx * padding + 'px';
+			l.style.top = y1 + dy * padding + 'px';
+			l.style.width = length - padding * 2 + 'px';
+			l.style.transform = `rotate(${angle}deg)`;
+			setTimeout(() => l.remove(), 1000);
+		}
+
+		const d = document.body.appendChild(document.createElement('div'));
+		d.className =
+			'ripple pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/20 outline-1 outline-white';
+		d.style.left = `${e.layerX}px`;
+		d.style.top = `${e.layerY}px`;
+		lastRipple = [e.layerX, e.layerY];
+		setTimeout(() => d.remove(), 1000);
+	}
 </script>
+
+<svelte:body onmousedown={onBodyClick} />
+
+<div class="pointer-events-none fixed inset-0 z-[-9999] overflow-hidden">
+	{#each rain as [r5, r], i}
+		<div
+			class="drop pointer-events-none absolute h-8 w-0.5 -rotate-12 rounded-2xl bg-gradient-to-b from-transparent from-30% to-white"
+			style:left="{i * (100 / rain.length)}%"
+			style:animation-delay="0.{r}s"
+			style:animation-duration="0.5{r}s"
+		></div>
+	{/each}
+</div>
 
 {#if copied}
 	<div
@@ -274,3 +342,54 @@
 		</nav>
 	</footer>
 </div>
+
+<style>
+	@keyframes drop {
+		0% {
+			bottom: 100%;
+			transform: translateX(0px);
+			opacity: 1;
+		}
+		75% {
+			opacity: 0.5;
+		}
+		100% {
+			bottom: -10%;
+			transform: translateX(250px);
+			opacity: 0;
+		}
+	}
+
+	@keyframes ripple {
+		0% {
+			width: 0rem;
+			height: 0rem;
+		}
+		100% {
+			width: 4rem;
+			height: 4rem;
+			opacity: 0;
+		}
+	}
+
+	@keyframes line {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	.drop {
+		animation: drop 0.5s linear infinite;
+	}
+
+	:global(.ripple) {
+		animation: ripple 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+	}
+
+	:global(.line) {
+		animation: line 1s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+	}
+</style>
