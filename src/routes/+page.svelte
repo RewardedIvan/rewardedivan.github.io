@@ -381,8 +381,23 @@
 		}
 	}
 
+	@keyframes appear {
+		0% {
+			opacity: 0;
+		}
+		99% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
 	.drop {
-		animation: drop 0.5s linear infinite;
+		opacity: 0;
+		animation:
+			appear 1s steps(1, end) forwards,
+			drop 0.5s linear 1s infinite;
 	}
 
 	:global(.ripple) {
