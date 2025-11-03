@@ -83,6 +83,20 @@
 		lastRipple = [e.layerX, e.layerY];
 		setTimeout(() => d.remove(), 1000);
 	}
+
+	function hashClick(e: MouseEvent) {
+		e.preventDefault();
+		const href = (e.currentTarget! as HTMLAnchorElement).getAttribute('href')!;
+		const id = href.substring(href.indexOf('#'));
+
+		if (id === '') {
+			history.pushState('', document.title, window.location.pathname);
+		} else {
+			const y = window.scrollY;
+			location.hash = id;
+			window.scrollTo(0, y);
+		}
+	}
 </script>
 
 <svelte:body onmousedown={onBodyClick} />
@@ -129,24 +143,77 @@
 		</div>
 		<div class="h-4"></div>
 
-		<p>developer/software engineer from 🇧🇬 bulgaria</p>
-		<p>
-			<Relative from={new Date('2011 jul 18')} />yo
-			<span class="text-blue-400" style="-webkit-text-stroke-width: 0.5px;">&male;</span>
-		</p>
-		<p class="flex flex-row flex-wrap items-center gap-1">
-			dualbooting <img src="/icons/me/Windows.svg" alt="windows" />
-			<img src="/icons/me/Arch.svg" alt="arch linux" /> on my laptop and desktop
-		</p>
-		<p class="flex flex-row flex-wrap items-center gap-1">
-			running <img src="/icons/me/Debian.svg" alt="debian" /> on my 2 home servers
-		</p>
-		<p>xbox choose my old username</p>
-		<p>free software advocate</p>
-		<p class="flex flex-row items-center gap-1">
-			i download my music <Foobar2000 />
-		</p>
-		<p>the time for me rn is <Clock tz="Europe/Sofia" /></p>
+		<div id="tabs">
+			<div class="*:bg-surface-100 mb-2 flex flex-wrap gap-1 *:p-0.5">
+				<a onclick={hashClick} href="/#">general</a>
+				<a onclick={hashClick} href="#hobbies">hobbies</a>
+				<a onclick={hashClick} href="#likes">likes</a>
+				<a onclick={hashClick} href="#projects">projects</a>
+			</div>
+			<section id="general">
+				<p>developer/software engineer from 🇧🇬 bulgaria</p>
+				<p>
+					<Relative from={new Date('2011 jul 18')} />yo
+					<span class="text-blue-400" style="-webkit-text-stroke-width: 0.5px;">&male;</span>
+				</p>
+				<p class="flex flex-row flex-wrap items-center gap-1">
+					dualbooting <img src="/icons/me/Windows.svg" alt="windows" />
+					<img src="/icons/me/Arch.svg" alt="arch linux" /> on my laptop and desktop
+				</p>
+				<p class="flex flex-row flex-wrap items-center gap-1">
+					running <img src="/icons/me/Debian.svg" alt="debian" />
+					<img src="/icons/me/Proxmox.svg" alt="proxmox" /> on my 2 home servers
+				</p>
+				<p>xbox choose my old username</p>
+				<p>free software advocate</p>
+				<p class="flex flex-row items-center gap-1">
+					i download my music <Foobar2000 />
+				</p>
+				<p>the time for me rn is <Clock tz="Europe/Sofia" /></p>
+			</section>
+			<section id="hobbies">
+				<ul class="ml-4 *:list-disc">
+					<li>
+						<a href="https://1k2s.netlify.app/about-me" title="ty" class="text-blue underline"
+							>sleeping</a
+						>
+					</li>
+					<li>hugging my plushies</li>
+					<li>crying (internally)</li>
+					<li>drinking water</li>
+					<li>programming</li>
+					<li>gaming (my steam is public)</li>
+					<li>discording</li>
+				</ul>
+			</section>
+			<section id="likes">
+				<ul class="ml-4 *:list-disc">
+					<li>computers</li>
+					<li>game hacking, graphics programming</li>
+					<li>zig</li>
+					<li>svelte, solid</li>
+					<li>material design system</li>
+					<li>catppuccin</li>
+					<li>cats</li>
+					<li>cappuccino, choco</li>
+					<li>anime</li>
+					<li>city lights, sky scrapers, atmosphere</li>
+					<li>jpop/jrock</li>
+					<li>FOSS</li>
+				</ul>
+			</section>
+			<section id="projects">
+				<img
+					src="https://media.tenor.com/i0uyjlpy6swAAAAM/wayne-tumbleweed.gif"
+					class="w-full"
+					alt="tumbleweed"
+				/>
+				<br />
+				but seriously 90% of my projects are unfinished and sitting somewhere on my drives
+				<br />
+				the other 10% that i'm sort of proud of are on my github
+			</section>
+		</div>
 	</div>
 
 	<div class="flex w-fit flex-col">
@@ -406,5 +473,23 @@
 
 	:global(.line) {
 		animation: line 1s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+	}
+
+	#tabs:has(#hobbies:target) a[href='#hobbies'],
+	#tabs:has(#likes:target) a[href='#likes'],
+	#tabs:has(#projects:target) a[href='#projects'] {
+		background: var(--catppuccin-surface-300);
+	}
+	#tabs:not(:has(:target)) a[href='/#'] {
+		background: var(--catppuccin-surface-300);
+	}
+	section {
+		display: none;
+	}
+	section:target {
+		display: block;
+	}
+	:global(body:not(:has(:target)) #general) {
+		display: block;
 	}
 </style>
