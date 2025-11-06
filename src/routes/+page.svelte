@@ -126,10 +126,10 @@
 
 <div class="flex flex-col gap-8 px-8 py-8 lg:px-16">
 	<div>
-		<div class="flex flex-row gap-2">
+		<div class="flex flex-row gap-2 items-center">
 			<img
 				src="https://avatars.githubusercontent.com/u/67065165"
-				class="max-w-20 rounded-xs shadow-2xl"
+				class="max-h-20 rounded-xs shadow-2xl"
 				alt="pfp"
 			/>
 
