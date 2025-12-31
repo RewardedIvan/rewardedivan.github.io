@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-	import { TZDate } from '@date-fns/tz';
-	import { format } from 'date-fns';
+	import { formatInTimeZone } from 'date-fns-tz';
 
 	interface Props {
 		tz?: string;
@@ -11,16 +9,16 @@
 	let { tz }: Props = $props();
 
 	let date = $state(new Date());
+	let timezone = tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 	onMount(() => {
-		if (browser) {
-			const intv = setInterval(() => {
-				date = new TZDate(new Date(), tz);
-			}, 10000);
+		const intv = setInterval(() => {
+			date = new Date();
+		}, 10_000);
 
-			return () => clearInterval(intv);
-		}
+		return () => clearInterval(intv);
 	});
 </script>
 
-{format(date, 'HH:mm a')}
+{formatInTimeZone(date, timezone, 'hh:mm a')}
+
