@@ -332,7 +332,7 @@
 					width="88"
 					height="31"
 					style="image-rendering: pixelated;"
-					src="https://n3tael.eu.org/assets/buttons/n3tael.gif"
+					src="https://n3tael.eu.org/88x31.gif"
 					alt="n3tael"
 				/>
 			</a>
