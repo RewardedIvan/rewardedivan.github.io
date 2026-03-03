@@ -37,7 +37,7 @@
 
 <div class="min-h-dvh bg-cover bg-fixed bg-right-top" style:background-image="url(/bg/shiroko.jpg)">
 	<div
-		class="bg-base/60 dark:bg-base/50 flex min-h-dvh flex-col gap-8 px-8 py-8 backdrop-blur-xs lg:px-16"
+		class="bg-base/60 dark:bg-base/50 flex min-h-dvh flex-col gap-8 p-6 sm:p-10 backdrop-blur-xs lg:p-16 max-sm:text-md"
 	>
 		{@render children?.()}
 	</div>

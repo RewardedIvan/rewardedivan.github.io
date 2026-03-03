@@ -152,7 +152,7 @@
 	</div>
 </dialog>
 
-<div class="flex flex-col gap-8 px-8 py-8 lg:px-16">
+<div class="flex flex-col gap-8">
 	<div>
 		<div class="flex flex-row gap-2 items-center">
 			<img
