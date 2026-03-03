@@ -11,6 +11,7 @@
 	import ClipboardIcon from '$lib/icons/material/ClipboardIcon.svelte';
 	import KeyIcon from '$lib/icons/material/KeyIcon.svelte';
 	import DiscordIcon from '$lib/icons/brand/DiscordIcon.svelte';
+	import MatrixIcon from '$lib/icons/brand/MatrixIcon.svelte';
 	import XIcon from '$lib/icons/brand/XIcon.svelte';
 	import GithubIcon from '$lib/icons/brand/GithubIcon.svelte';
 	import SteamIcon from '$lib/icons/brand/SteamIcon.svelte';
@@ -19,7 +20,11 @@
 	import OsuIcon from '$lib/icons/brand/OsuIcon.svelte';
 	import VRChatIcon from '$lib/icons/brand/VRChatIcon.svelte';
 	import RobloxIcon from '$lib/icons/brand/RobloxIcon.svelte';
+	import SignalIcon from '$lib/icons/brand/SignalIcon.svelte';
+	import LiberaColorIcon from '$lib/icons/brand/LiberaColorIcon.svelte';
+	import OFTCIcon from '$lib/icons/brand/OFTCIcon.svelte';
 
+	let discordDialog: HTMLDialogElement | undefined = $state();
 	let copied = $state(false);
 	$effect(() => {
 		if (copied == true) {
@@ -124,6 +129,29 @@
 	</div>
 {/if}
 
+<dialog bind:this={discordDialog} class="backdrop:bg-surface-100 backdrop:opacity-40 m-auto inset-0 bg-transparent backdrop:backdrop-blur-sm discord-dialog">
+	<div class="min-w-[280px] border-none bg-surface-200 text-text p-[24px] rounded-[28px]">
+		<h1 class="text-xl leading-6 mb-[16px]">are you sure?</h1>
+		<p>basically, i don't really like discord,</p>
+		<p>because of all the big corpo stuff they do</p>
+		<p>but this situation made it worse</p>
+
+		<p class="mt-2">i'm not going to be as active on discord</p>
+		<p class="mb-2">i recommend using the left most platforms</p>
+
+		<p class="text-indigo-500 underline underline-offset-1"><a href="https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ">https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ</a></p>
+		<p class="text-indigo-500 underline underline-offset-1"><a href="https://vmfunc.re/blog/persona">https://vmfunc.re/blog/persona</a></p>
+
+		<div class="flex gap-2 flex-row-reverse mt-4 w-full max-sm:text-sm">
+			<Button class="bg-surface-300/40 hover:bg-surface-300" copy="int4_t" onClick={() => {
+				copied = true;
+				discordDialog?.close();
+			}}>copy username</Button>
+			<Button class="bg-surface-300/40 hover:bg-surface-300" onClick={() => discordDialog?.close()}>use another platform</Button>
+		</div>
+	</div>
+</dialog>
+
 <div class="flex flex-col gap-8 px-8 py-8 lg:px-16">
 	<div>
 		<div class="flex flex-row gap-2 items-center">
@@ -183,7 +211,6 @@
 					<li>drinking water</li>
 					<li>programming</li>
 					<li>gaming (my steam is public)</li>
-					<li>discording</li>
 				</ul>
 			</section>
 			<section id="likes">
@@ -256,7 +283,47 @@
 				</span>
 			{/snippet}
 
+			<Button class="group text-xl" copy="@int4_t:matrix.int4.cc" onClick={() => (copied = true)}>
+				<MatrixIcon />
+				<span class="ml-1 max-w-55">
+					matrix.int4.cc
+				</span>
+
+			</Button>
+
+			<Button class="group text-xl" copy="int4_t.67" onClick={() => (copied = true)}>
+				<SignalIcon />
+				{@render txt('signal')}
+			</Button>
+
+			<Button class="group text-xl" copy="@int4_t:matrix.org" onClick={() => (copied = true)}>
+				<MatrixIcon />
+				{@render txt('matrix.org')}
+			</Button>
+
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+				<span class="max-w-80">
+					ircs://irc.int4.cc
+				</span>
+			</Button>
+
+			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+				<OFTCIcon />
+				{@render txt('oftc.net')}
+			</Button>
+
+			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+				<span class="max-w-80">
+					hackint.org
+				</span>
+			</Button>
+
+			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+				<LiberaColorIcon />
+				{@render txt('libera.chat')}
+			</Button>
+
+			<Button class="group text-xl opacity-75" onClick={() => (discordDialog?.showModal())}>
 				<DiscordIcon />
 				{@render txt('discord')}
 			</Button>
@@ -327,6 +394,9 @@
 					alt="int4_t 88x31"
 				/>
 			</a>
+			<a href="https://lumentae.dev">
+				<img src="https://lumentae.dev/lumentae.gif" alt="lumentae" title="lumentae" />
+			</a>
 			<a href="https://n3tael.eu.org">
 				<img
 					width="88"
@@ -335,9 +405,6 @@
 					src="https://n3tael.eu.org/88x31.gif"
 					alt="n3tael"
 				/>
-			</a>
-			<a href="https://lumentae.dev">
-				<img src="https://lumentae.dev/lumentae.gif" alt="lumentae" title="lumentae" />
 			</a>
 			<a href="https://vendicated.dev/">
 				<img width="88" height="31" src="/88x31/vendicated.gif" alt="Vendicated" />
@@ -491,5 +558,21 @@
 	}
 	:global(body:not(:has(:target)) #general) {
 		display: block;
+	}
+
+	.discord-dialog {
+		animation: slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		transition-behavior: allow-discrete;
+	}
+
+	@keyframes slide-in {
+		0% {
+			transform: translateY(-3rem) scaleY(90%);
+			clip-path: inset(0 0 100% 0 round 28px);
+		}
+		100% {
+			transform: translateY(0) scaleY(100%); max-height: 100%;
+			clip-path: inset(0 0 0 0 round 28px);
+		}
 	}
 </style>
