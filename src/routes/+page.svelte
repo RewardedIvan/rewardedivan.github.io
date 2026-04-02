@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
-	import { expoInOut } from 'svelte/easing';
+	import { slide, fly } from 'svelte/transition';
+	import { cubicOut, expoInOut, expoOut } from 'svelte/easing';
 	import { tools } from '$lib/tools';
 	import { blogs } from './blogs';
 	import Relative from './Relative.svelte';
@@ -23,8 +23,11 @@
 	import SignalIcon from '$lib/icons/brand/SignalIcon.svelte';
 	import LiberaColorIcon from '$lib/icons/brand/LiberaColorIcon.svelte';
 	import OFTCIcon from '$lib/icons/brand/OFTCIcon.svelte';
+	import NextArrow from '$lib/icons/material/NextArrow.svelte';
+	import { Tween } from 'svelte/motion';
 
 	let discordDialog: HTMLDialogElement | undefined = $state();
+	let ageVerificationDialog: HTMLDialogElement | undefined = $state();
 	let copied = $state(false);
 	$effect(() => {
 		if (copied == true) {
@@ -102,6 +105,148 @@
 			window.scrollTo(0, y);
 		}
 	}
+
+	function completeAgeVerification() {
+		localStorage.setItem('verifiedAge', 'true');
+		if (!ageVerificationDialog) return;
+		ageVerificationDialog.close();
+	}
+
+	function openAgeVerificationDialog() {
+		if (localStorage.getItem('verifiedAge') == 'true') return;
+		if (!ageVerificationDialog) return;
+		ageVerificationDialog.showModal();
+	}
+
+	let ageVerificationStage = $state(0);
+	let ageVerificationMessages = $state([]);
+	let ageVerificationChat: HTMLDivElement | undefined = $state(undefined);
+
+	const tweenConfig = {
+		modal: { width: 500, height: 190, widthDuration: 200, heightDuration: 500 },
+		chat: { width: 500, height: 160, widthDuration: 200, heightDuration: 500 },
+		progress: { duration: 200 }
+	};
+
+	const ageVerification = {
+		modalWidth: new Tween(tweenConfig.modal.width, {
+			duration: tweenConfig.modal.widthDuration,
+			easing: cubicOut
+		}),
+		modalHeight: new Tween(tweenConfig.modal.height, {
+			duration: tweenConfig.modal.heightDuration,
+			easing: cubicOut
+		}),
+		chatWidth: new Tween(tweenConfig.chat.width, {
+			duration: tweenConfig.chat.widthDuration,
+			easing: cubicOut
+		}),
+		chatHeight: new Tween(tweenConfig.chat.height, {
+			duration: tweenConfig.chat.heightDuration,
+			easing: cubicOut
+		}),
+		progress: new Tween(0, { duration: tweenConfig.progress.duration, easing: expoOut }),
+		files: [
+			['Epstein', 'epstein.png'],
+			['Benjamin Netanyahu', 'benjamin_netanyahu.png'],
+			['Bill Gates', 'bill_gates.png'],
+			['Donald Trump', 'donald_trump.png'],
+			['Elon Musk', 'elon_musk.png'],
+		],
+	};
+
+	let stream: 'ai' | MediaStream = $state('ai');
+	async function startAgeVerification() {
+		try {
+			stream = await navigator.mediaDevices.getUserMedia({
+				video: { facingMode: 'user' },
+				audio: false
+			});
+
+			ageVerificationStage = 1;
+			ageVerification.modalWidth.set(300);
+			ageVerification.modalHeight.set(450);
+		} catch (err) {
+			// TODO: Implement AI neuralink age verification
+			stream = 'ai';
+
+			ageVerificationStage = 2;
+			ageVerification.modalWidth.set(500);
+			ageVerification.modalHeight.set(160);
+
+			const updateProgress = () => {
+				if (ageVerification.progress.current >= 1) {
+					ageVerification.modalWidth.set(190);
+						ageVerification.chatHeight.set(160);
+					ageVerificationStage = 3;
+					setTimeout(() => {
+						ageVerification.modalWidth.set(180);
+						ageVerification.chatWidth.set(480);
+						ageVerification.chatHeight.set(280);
+						ageVerificationStage = 4;
+
+						const updateMessages = () => {
+							if (ageVerificationMessages.length >= 20) {
+								ageVerificationStage = 5;
+								ageVerification.chatWidth.set(0);
+								ageVerification.chatHeight.set(0);
+								setTimeout(() => {
+									ageVerificationStage = 7;
+									ageVerification.modalWidth.set(500);
+									ageVerification.modalHeight.set(120);
+								}, 400);
+								return;
+							}
+
+							const rarr = (arr: Array<any>) => arr[Math.floor(Math.random() * arr.length)];
+							const messages = ['no way dude', 'god DAMN', 'no we can\'t do that', 'i don\'t know', 'i\'m sorry', 'holy shit', 'we can\'t do that to them bro', 'we might\'ve just found gold', 'i might know their dad', 'i\'ve done some business with them'];
+							ageVerificationMessages = [
+								// @ts-ignore
+								...ageVerificationMessages,
+								// @ts-ignore
+								[...rarr(ageVerification.files), rarr(messages)]
+							];
+							ageVerificationChat!.scroll({ top: ageVerificationChat!.scrollHeight });
+
+							setTimeout(updateMessages, Math.random() * 1300);
+						};
+
+						setTimeout(() => updateMessages(), 500);
+						setTimeout(() => {
+							ageVerificationMessages = [
+								// @ts-ignore
+								...ageVerificationMessages,
+								// @ts-ignore
+								[...ageVerification.files[0], "*saved image*"]
+							];
+							ageVerificationChat!.scroll({ top: ageVerificationChat!.scrollHeight });
+						}, 1200);
+					}, 500);
+					return;
+				}
+
+				ageVerification.progress.set(
+					Math.min(ageVerification.progress.current + Math.random() * 0.08, 1)
+				);
+
+				setTimeout(updateProgress, Math.random() * 300);
+			};
+
+			updateProgress();
+		}
+	}
+
+	function reverifyAge() {
+		localStorage.removeItem('verifiedAge');
+		ageVerificationStage = 0;
+		ageVerificationMessages = [];
+		ageVerification.modalWidth.set(tweenConfig.modal.width);
+		ageVerification.modalHeight.set(tweenConfig.modal.height);
+		ageVerification.chatWidth.set(tweenConfig.chat.width);
+		ageVerification.chatHeight.set(tweenConfig.chat.height);
+		ageVerification.progress.set(0);
+		openAgeVerificationDialog();
+	}
 </script>
 
 <svelte:body onmousedown={onBodyClick} />
@@ -129,9 +274,139 @@
 	</div>
 {/if}
 
-<dialog bind:this={discordDialog} class="backdrop:bg-surface-100 backdrop:opacity-40 m-auto inset-0 bg-transparent backdrop:backdrop-blur-sm discord-dialog">
-	<div class="min-w-[280px] border-none bg-surface-200 text-text p-[24px] rounded-[28px]">
-		<h1 class="text-xl leading-6 mb-[16px]">are you sure?</h1>
+<dialog
+	class="backdrop:bg-surface-100 discord-dialog inset-0 m-auto bg-transparent backdrop:opacity-40 backdrop:backdrop-blur-xl"
+	closedby="none"
+	bind:this={ageVerificationDialog}
+	{@attach openAgeVerificationDialog}
+>
+	<div class="flex flex-col sm:flex-row items-center gap-2">
+		<div
+			class="bg-surface-200 text-text overflow-hidden rounded-[28px] border-none p-[24px] max-w-[calc(100vw-3rem)] lg:max-w-[600px]"
+		>
+			<div
+				class="relative"
+				style:width="{ageVerification.modalWidth.current}px"
+				style:height="{ageVerification.modalHeight.current}px"
+			>
+				{#if ageVerificationStage == 0}
+					<div out:fly={{ x: -700, duration: 300, easing: cubicOut }} class="absolute inset-0">
+						To comply with recent legal regulations, I am required to verify the age of my visitors
+						before granting access to this website. Think of the children. I appreciate your
+						understanding and cooperation.
+
+						<div class="h-2"></div>
+						<span class="text-muted font-comic-neue text-xs font-bold" title="but in all seriousness i don't even store it, neither do i send it anywhere i don't even have a backend on this site">
+							All data gets deleted after 24 hours.
+						</span>
+
+						<div class="mt-4 flex w-full flex-row-reverse gap-2 max-sm:text-sm">
+							<Button
+								class="bg-surface-300/40 hover:bg-surface-300 rounded-full"
+								onClick={startAgeVerification}><NextArrow /></Button
+							>
+							<Button
+								class="bg-surface-300/40 hover:bg-surface-300 rounded-full"
+								onClick={completeAgeVerification}
+								title="you're boring"
+							>
+								skip
+							</Button>
+						</div>
+					</div>
+				{:else if ageVerificationStage == 1}
+					<div
+						in:fly={{ x: 700, duration: 400, easing: cubicOut }}
+						class="absolute inset-0 flex flex-col justify-between"
+					>
+						<span class="text-2xl">Verify your age</span>
+
+						<video id="video" autoplay playsinline src={stream}></video>
+
+						<div class="flex w-full flex-row-reverse gap-2 max-sm:text-sm">
+							<div class="h-2"></div>
+							<span class="text-muted font-patrick-hand text-xs font-bold" title="but in all seriousness i don't even store it, neither do i send it anywhere i don't even have a backend on this site">
+								All data gets deleted after 24 hours.
+							</span>
+
+							<Button
+								class="bg-surface-300/40 hover:bg-surface-300 rounded-full"
+								onClick={startAgeVerification}><NextArrow /></Button
+							>
+							<Button
+								class="bg-surface-300/40 hover:bg-surface-300 rounded-full"
+								onClick={completeAgeVerification}
+							>
+								skip
+							</Button>
+						</div>
+					</div>
+				{:else if ageVerificationStage == 2}
+					<span
+						>Unfortunately, your device does not support face-to-face human interface verification.
+						As an alternative, we will utilize Neuralink AI technology to establish a neural
+						connection and confirm your age.</span
+					>
+							<div class="h-2"></div>
+							<span class="text-muted font-patrick-hand text-xs font-bold" title="but in all seriousness i don't even store it, neither do i send it anywhere i don't even have a backend on this site">
+								All data gets deleted after 24 hours.
+							</span>
+
+					<div class="bg-surface-300/40 mt-2 h-2 w-full rounded-xs">
+						<div
+							class="bg-surface-300 h-full rounded-xs brightness-120"
+							style:width="{ageVerification.progress.current * 100}%"
+						></div>
+					</div>
+				{:else if ageVerificationStage >= 3 && ageVerificationStage < 7}
+					<span>Successfully sent your frontal lobe scan to our servers!</span>
+					<div class="text-4xl font-bold text-green-400">✔</div>
+				{:else if ageVerificationStage == 7}
+					<div class="flex flex-col justify-between items-start">
+						<span class="text-2xl">Congratulations!</span>
+						<span>You are now age verified! You may continue browsing.</span>
+						<div class="mt-4 flex w-full flex-row-reverse">
+							<Button
+								class="bg-surface-300/40 hover:bg-surface-300 rounded-full"
+								onClick={completeAgeVerification}><NextArrow /></Button
+							>
+						</div>
+					</div>
+				{/if}
+			</div>
+		</div>
+		{#if ageVerificationStage >= 4 && ageVerificationStage < 7}
+			<div
+				class="bg-surface-200 text-text overflow-hidden rounded-[28px] border-none p-[24px] max-w-[calc(100vw-3rem)] lg:max-w-[600px]"
+			>
+				<div
+					class="relative"
+					style:width="{ageVerification.chatWidth.current}px"
+					style:height="{ageVerification.chatHeight.current}px"
+				>
+					<div class="flex max-h-[290px] flex-col items-start gap-2 overflow-y-auto scroll-smooth" bind:this={ageVerificationChat}>
+						{#each ageVerificationMessages as [name, file, message]}
+							<div class="flex flex-row gap-2">
+								<img src="/ageverification/{file}" alt={name} class="size-10 rounded-full" />
+								<div class="flex flex-col">
+									<span class="font-bold text-blue">{name}</span>
+									<span>{message}</span>
+								</div>
+							</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		{/if}
+	</div>
+</dialog>
+
+<dialog
+	bind:this={discordDialog}
+	class="backdrop:bg-surface-100 discord-dialog inset-0 m-auto bg-transparent backdrop:opacity-40 backdrop:backdrop-blur-sm"
+>
+	<div class="bg-surface-200 text-text min-w-[280px] rounded-[28px] border-none p-[24px]">
+		<h1 class="mb-[16px] text-xl leading-6">are you sure?</h1>
 		<p>basically, i don't really like discord,</p>
 		<p>because of all the big corpo stuff they do</p>
 		<p>but this situation made it worse</p>
@@ -139,22 +414,35 @@
 		<p class="mt-2">i'm not going to be as active on discord</p>
 		<p class="mb-2">i recommend using the left most platforms</p>
 
-		<p class="text-indigo-500 underline underline-offset-1"><a href="https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ">https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ</a></p>
-		<p class="text-indigo-500 underline underline-offset-1"><a href="https://vmfunc.re/blog/persona">https://vmfunc.re/blog/persona</a></p>
+		<p class="text-indigo-500 underline underline-offset-1">
+			<a
+				href="https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ"
+				>https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ</a
+			>
+		</p>
+		<p class="text-indigo-500 underline underline-offset-1">
+			<a href="https://vmfunc.re/blog/persona">https://vmfunc.re/blog/persona</a>
+		</p>
 
-		<div class="flex gap-2 flex-row-reverse mt-4 w-full max-sm:text-sm">
-			<Button class="bg-surface-300/40 hover:bg-surface-300" copy="int4_t" onClick={() => {
-				copied = true;
-				discordDialog?.close();
-			}}>copy username</Button>
-			<Button class="bg-surface-300/40 hover:bg-surface-300" onClick={() => discordDialog?.close()}>use another platform</Button>
+		<div class="mt-4 flex w-full flex-row-reverse gap-2 max-sm:text-sm">
+			<Button
+				class="bg-surface-300/40 hover:bg-surface-300"
+				copy="int4_t"
+				onClick={() => {
+					copied = true;
+					discordDialog?.close();
+				}}>copy username</Button
+			>
+			<Button class="bg-surface-300/40 hover:bg-surface-300" onClick={() => discordDialog?.close()}
+				>use another platform</Button
+			>
 		</div>
 	</div>
 </dialog>
 
 <div class="flex flex-col gap-8">
 	<div>
-		<div class="flex flex-row gap-2 items-center">
+		<div class="flex flex-row items-center gap-2">
 			<img
 				src="https://avatars.githubusercontent.com/u/67065165"
 				class="max-h-20 rounded-xs shadow-2xl"
@@ -198,6 +486,7 @@
 					i download my music <Foobar2000 />
 				</p>
 				<p>the time for me rn is <Clock tz="Europe/Sofia" /></p>
+				<button class="text-blue underline" onclick={reverifyAge}>verify your age again</button>
 			</section>
 			<section id="hobbies">
 				<ul class="ml-4 *:list-disc">
@@ -285,10 +574,7 @@
 
 			<Button class="group text-xl" copy="@int4_t:matrix.int4.cc" onClick={() => (copied = true)}>
 				<MatrixIcon />
-				<span class="ml-1 max-w-55">
-					matrix.int4.cc
-				</span>
-
+				<span class="ml-1 max-w-55"> matrix.int4.cc </span>
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t.67" onClick={() => (copied = true)}>
@@ -302,9 +588,7 @@
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
-				<span class="max-w-80">
-					ircs://irc.int4.cc
-				</span>
+				<span class="max-w-80"> ircs://irc.int4.cc </span>
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
@@ -313,9 +597,7 @@
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
-				<span class="max-w-80">
-					hackint.org
-				</span>
+				<span class="max-w-80"> hackint.org </span>
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
@@ -323,7 +605,7 @@
 				{@render txt('libera.chat')}
 			</Button>
 
-			<Button class="group text-xl opacity-75" onClick={() => (discordDialog?.showModal())}>
+			<Button class="group text-xl opacity-75" onClick={() => discordDialog?.showModal()}>
 				<DiscordIcon />
 				{@render txt('discord')}
 			</Button>
@@ -571,7 +853,8 @@
 			clip-path: inset(0 0 100% 0 round 28px);
 		}
 		100% {
-			transform: translateY(0) scaleY(100%); max-height: 100%;
+			transform: translateY(0) scaleY(100%);
+			max-height: 100%;
 			clip-path: inset(0 0 0 0 round 28px);
 		}
 	}
