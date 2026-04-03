@@ -2,8 +2,6 @@
 	import { onMount, type Snippet } from 'svelte';
 	import '../app.css';
 	import '@fontsource-variable/jetbrains-mono';
-	import '@fontsource/patrick-hand';
-	import '@fontsource/comic-neue';
 	import type { LayoutProps } from './$types';
 	import { browser } from '$app/environment';
 
