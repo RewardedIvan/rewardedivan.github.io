@@ -21,4 +21,3 @@
 </script>
 
 {formatInTimeZone(date, timezone, 'hh:mm a')}
-

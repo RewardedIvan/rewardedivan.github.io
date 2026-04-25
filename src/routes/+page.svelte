@@ -129,9 +129,12 @@
 	</div>
 {/if}
 
-<dialog bind:this={discordDialog} class="backdrop:bg-surface-100 backdrop:opacity-40 m-auto inset-0 bg-transparent backdrop:backdrop-blur-sm discord-dialog">
-	<div class="min-w-[280px] border-none bg-surface-200 text-text p-[24px] rounded-[28px]">
-		<h1 class="text-xl leading-6 mb-[16px]">are you sure?</h1>
+<dialog
+	bind:this={discordDialog}
+	class="backdrop:bg-surface-100 discord-dialog inset-0 m-auto bg-transparent backdrop:opacity-40 backdrop:backdrop-blur-sm"
+>
+	<div class="bg-surface-200 text-text min-w-[280px] rounded-[28px] border-none p-[24px]">
+		<h1 class="mb-[16px] text-xl leading-6">are you sure?</h1>
 		<p>basically, i don't really like discord,</p>
 		<p>because of all the big corpo stuff they do</p>
 		<p>but this situation made it worse</p>
@@ -139,22 +142,35 @@
 		<p class="mt-2">i'm not going to be as active on discord</p>
 		<p class="mb-2">i recommend using the left most platforms</p>
 
-		<p class="text-indigo-500 underline underline-offset-1"><a href="https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ">https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ</a></p>
-		<p class="text-indigo-500 underline underline-offset-1"><a href="https://vmfunc.re/blog/persona">https://vmfunc.re/blog/persona</a></p>
+		<p class="text-indigo-500 underline underline-offset-1">
+			<a
+				href="https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ"
+				>https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ</a
+			>
+		</p>
+		<p class="text-indigo-500 underline underline-offset-1">
+			<a href="https://vmfunc.re/blog/persona">https://vmfunc.re/blog/persona</a>
+		</p>
 
-		<div class="flex gap-2 flex-row-reverse mt-4 w-full max-sm:text-sm">
-			<Button class="bg-surface-300/40 hover:bg-surface-300" copy="int4_t" onClick={() => {
-				copied = true;
-				discordDialog?.close();
-			}}>copy username</Button>
-			<Button class="bg-surface-300/40 hover:bg-surface-300" onClick={() => discordDialog?.close()}>use another platform</Button>
+		<div class="mt-4 flex w-full flex-row-reverse gap-2 max-sm:text-sm">
+			<Button
+				class="bg-surface-300/40 hover:bg-surface-300"
+				copy="int4_t"
+				onClick={() => {
+					copied = true;
+					discordDialog?.close();
+				}}>copy username</Button
+			>
+			<Button class="bg-surface-300/40 hover:bg-surface-300" onClick={() => discordDialog?.close()}
+				>use another platform</Button
+			>
 		</div>
 	</div>
 </dialog>
 
 <div class="flex flex-col gap-8">
 	<div>
-		<div class="flex flex-row gap-2 items-center">
+		<div class="flex flex-row items-center gap-2">
 			<img
 				src="https://avatars.githubusercontent.com/u/67065165"
 				class="max-h-20 rounded-xs shadow-2xl"
@@ -285,10 +301,7 @@
 
 			<Button class="group text-xl" copy="@int4_t:matrix.int4.cc" onClick={() => (copied = true)}>
 				<MatrixIcon />
-				<span class="ml-1 max-w-55">
-					matrix.int4.cc
-				</span>
-
+				<span class="ml-1 max-w-55"> matrix.int4.cc </span>
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t.67" onClick={() => (copied = true)}>
@@ -302,9 +315,7 @@
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
-				<span class="max-w-80">
-					ircs://irc.int4.cc
-				</span>
+				<span class="max-w-80"> ircs://irc.int4.cc </span>
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
@@ -313,9 +324,7 @@
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
-				<span class="max-w-80">
-					hackint.org
-				</span>
+				<span class="max-w-80"> hackint.org </span>
 			</Button>
 
 			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
@@ -323,7 +332,7 @@
 				{@render txt('libera.chat')}
 			</Button>
 
-			<Button class="group text-xl opacity-75" onClick={() => (discordDialog?.showModal())}>
+			<Button class="group text-xl opacity-75" onClick={() => discordDialog?.showModal()}>
 				<DiscordIcon />
 				{@render txt('discord')}
 			</Button>
@@ -571,7 +580,8 @@
 			clip-path: inset(0 0 100% 0 round 28px);
 		}
 		100% {
-			transform: translateY(0) scaleY(100%); max-height: 100%;
+			transform: translateY(0) scaleY(100%);
+			max-height: 100%;
 			clip-path: inset(0 0 0 0 round 28px);
 		}
 	}
