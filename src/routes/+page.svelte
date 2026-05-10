@@ -418,8 +418,16 @@
 					alt="n3tael"
 				/>
 			</a>
+			<a href="https://carsoncoder.com">
+				<img src="/88x31/carsoncoder.png" width="88" heighr="31" alt="carsoncoder" />
+			</a>
 			<a href="https://vavakado.xyz">
-				<img alt="vavakado's button" height="31" src="https://vavakado.xyz/static/buttons/vavakado.webp" width="88" />
+				<img
+					alt="vavakado's button"
+					height="31"
+					src="https://vavakado.xyz/static/buttons/vavakado.webp"
+					width="88"
+				/>
 			</a>
 			<a href="https://vendicated.dev/">
 				<img width="88" height="31" src="/88x31/vendicated.gif" alt="Vendicated" />
