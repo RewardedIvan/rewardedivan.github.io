@@ -406,6 +406,9 @@
 			<a href="https://avascik.neocities.org"
 				><img src="https://avascik.neocities.org/88x31.jpg" alt="88x31" height="31" width="88" /></a
 			>
+			<a href="https://nixie.int4.cc"
+				><img src="https://nixie.int4.cc/88x31.gif" alt="88x31" height="31" width="88" /></a
+			>
 			<a href="https://lumentae.dev">
 				<img src="https://lumentae.dev/lumentae.gif" alt="lumentae" title="lumentae" />
 			</a>
