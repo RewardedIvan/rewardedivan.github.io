@@ -482,6 +482,9 @@
 			<a href="https://hackclub.com">
 				<img src="/88x31/hackclub.png" alt="hackclub" title="hackclub" />
 			</a>
+			<a href="https://copyparty.eu/">
+				<img src="https://copyparty.eu/88x31.png" alt="copyparty" title="copyparty" />
+			</a>
 		</div>
 	</div>
 
