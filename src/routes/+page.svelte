@@ -444,9 +444,6 @@
 			<a href="https://aubrey.rs" rel="noopener noreferrer" target="_blank">
 				<img alt="aubrey" height="31" width="88" src="/88x31/aubrey.webp" />
 			</a>
-			<a href="https://floppa.systems/">
-				<img height="31" width="88" src="https://floppa.systems/chxry.gif" alt="cherry" />
-			</a>
 			<a href="https://lily.pet/">
 				<img src="/88x31/lily.png" alt="lily.pet, cat! (points to cat)" />
 			</a>
