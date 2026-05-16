@@ -23,6 +23,7 @@
 	import SignalIcon from '$lib/icons/brand/SignalIcon.svelte';
 	import LiberaColorIcon from '$lib/icons/brand/LiberaColorIcon.svelte';
 	import OFTCIcon from '$lib/icons/brand/OFTCIcon.svelte';
+	import DiscordDialogContent from '$lib/components/DiscordDialogContent.svelte';
 
 	let discordDialog: HTMLDialogElement | undefined = $state();
 	let copied = $state(false);
@@ -134,23 +135,7 @@
 	class="backdrop:bg-surface-100 discord-dialog inset-0 m-auto bg-transparent backdrop:opacity-40 backdrop:backdrop-blur-sm"
 >
 	<div class="bg-surface-200 text-text min-w-[280px] rounded-[28px] border-none p-[24px]">
-		<h1 class="mb-[16px] text-xl leading-6">are you sure?</h1>
-		<p>basically, i don't really like discord,</p>
-		<p>because of all the big corpo stuff they do</p>
-		<p>but this situation made it worse</p>
-
-		<p class="mt-2">i'm not going to be as active on discord</p>
-		<p class="mb-2">i recommend using the left most platforms</p>
-
-		<p class="text-indigo-500 underline underline-offset-1">
-			<a
-				href="https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ"
-				>https://support.discord.com/hc/en-us/articles/38332670254231-Age-Assurance-Update-FAQ</a
-			>
-		</p>
-		<p class="text-indigo-500 underline underline-offset-1">
-			<a href="https://vmfunc.re/blog/persona">https://vmfunc.re/blog/persona</a>
-		</p>
+		<DiscordDialogContent/>
 
 		<div class="mt-4 flex w-full flex-row-reverse gap-2 max-sm:text-sm">
 			<Button
@@ -167,6 +152,15 @@
 		</div>
 	</div>
 </dialog>
+
+<noscript>
+<div popover class="bg-surface-200 rounded-md fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-text p-2" id="discord_popover">
+	<DiscordDialogContent/>
+	<br>
+	my username:
+	<textarea class="bg-surface-200" readonly rows="1">int4_t</textarea>
+</div>
+</noscript>
 
 <div class="flex flex-col gap-8">
 	<div>
@@ -299,40 +293,40 @@
 				</span>
 			{/snippet}
 
-			<Button class="group text-xl" copy="@int4_t:matrix.int4.cc" onClick={() => (copied = true)}>
-				<MatrixIcon />
+			<Button class="group text-xl" popover_take_copy popover_id="matrix_popover" popover_header="my matrix:" copy="@int4_t:matrix.int4.cc" onClick={() => (copied = true)}>
+			<MatrixIcon />
 				<span class="ml-1 max-w-55"> matrix.int4.cc </span>
 			</Button>
 
-			<Button class="group text-xl" copy="int4_t.67" onClick={() => (copied = true)}>
+			<Button class="group text-xl" popover_take_copy popover_id="signal" popover_header="my signal:" copy="int4_t.67" onClick={() => (copied = true)}>
 				<SignalIcon />
 				{@render txt('signal')}
 			</Button>
 
-			<Button class="group text-xl" copy="@int4_t:matrix.org" onClick={() => (copied = true)}>
+			<Button class="group text-xl" popover_take_copy popover_id="matrix" popover_header="my matrix:" copy="@int4_t:matrix.org" onClick={() => (copied = true)}>
 				<MatrixIcon />
 				{@render txt('matrix.org')}
 			</Button>
 
-			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+			<Button class="group text-xl" popover_take_copy popover_id="irc" popover_header="my ivanirc nick:" copy="int4_t" onClick={() => (copied = true)}>
 				<span class="max-w-80"> ircs://irc.int4.cc </span>
 			</Button>
 
-			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+			<Button class="group text-xl" popover_take_copy popover_id="oftc" popover_header="my oftc nick:" copy="int4_t" onClick={() => (copied = true)}>
 				<OFTCIcon />
 				{@render txt('oftc.net')}
 			</Button>
 
-			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+			<Button class="group text-xl" popover_take_copy popover_id="hackint" popover_header="my hackint nick:" copy="int4_t" onClick={() => (copied = true)}>
 				<span class="max-w-80"> hackint.org </span>
 			</Button>
 
-			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+			<Button class="group text-xl" popover_take_copy popover_id="libera" popover_header="my libera nick:" copy="int4_t" onClick={() => (copied = true)}>
 				<LiberaColorIcon />
 				{@render txt('libera.chat')}
 			</Button>
 
-			<Button class="group text-xl opacity-75" onClick={() => discordDialog?.showModal()}>
+			<Button class="group text-xl opacity-75" popover_id="discord_popover" onClick={() => discordDialog?.showModal()}>
 				<DiscordIcon />
 				{@render txt('discord')}
 			</Button>
@@ -357,7 +351,7 @@
 				{@render txt('osu')}
 			</Button>
 
-			<Button class="group text-xl" copy="int4_t" onClick={() => (copied = true)}>
+			<Button class="group text-xl" popover_take_copy popover_id="vrchat" popover_header="my vrchat:" copy="int4_t" onClick={() => (copied = true)}>
 				<VRChatIcon />
 				{@render txt('vrchat')}
 			</Button>
@@ -375,6 +369,9 @@
 			<Button
 				class="group text-xl"
 				copy="A16B98815D0563295CB2795FA16F1618AADEFEDF"
+				popover_take_copy
+				popover_id="pgp"
+				popover_header="my pgp:"
 				onClick={() => (copied = true)}
 			>
 				<KeyIcon />
