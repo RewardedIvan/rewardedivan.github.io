@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		rippleDuration?: number;
@@ -8,10 +9,10 @@
 		copy?: string;
 		onClick?: (event: MouseEvent) => void;
 		href?: string;
-		popover_header?: string;
 		popover_id?: string;
+		popover_header?: Snippet<[]>;
+		popover_title?: unknown;
 		popover_content?: string;
-		popover_take_copy?: boolean;
 	}
 
 	let {
@@ -21,10 +22,10 @@
 		wrapperClass,
 		copy,
 		href,
-		popover_header,
 		popover_id,
+		popover_header,
+		popover_title,
 		popover_content,
-		popover_take_copy,
 		...restProps
 	}: Props & HTMLButtonAttributes = $props();
 
@@ -32,7 +33,7 @@
 	let buttonElement: HTMLButtonElement | null = $state(null);
 	let copyInput: HTMLInputElement | null = $state(null);
 
-	let final_popover_content = popover_take_copy ? copy : popover_content;
+	let final_popover_content = popover_content ?? copy;
 
 	function createRipple(event: MouseEvent) {
 		const button = buttonElement!;
@@ -65,12 +66,27 @@
 </script>
 
 <noscript>
-{#if final_popover_content && popover_id}
-	<div popover class="bg-surface-200 rounded-md fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-text p-2" id={popover_id}>
-		{popover_header}<br>
-		<textarea class="bg-surface-200" readonly rows="1">{final_popover_content}</textarea>
-	</div>
-{/if}
+	{#if final_popover_content}
+		<div
+			popover
+			class="backdrop:bg-surface-100 dialog-anim text-text fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md bg-transparent p-2 backdrop:opacity-40 backdrop:backdrop-blur-sm"
+			id={popover_id}
+		>
+			<div class="bg-surface-200 text-text min-w-[280px] rounded-[28px] border-none p-[24px]">
+				{@render popover_header?.()}
+
+				<div class="flex items-center gap-2">
+					{popover_title}
+
+					<textarea
+						class="bg-surface-100 resize-none border-2 border-none p-1 outline-none w-fit field-sizing-content"
+						readonly="readonly"
+						rows="1">{final_popover_content}</textarea
+					>
+				</div>
+			</div>
+		</div>
+	{/if}
 </noscript>
 
 <button
@@ -81,7 +97,7 @@
 	popovertarget={popover_id}
 	{...restProps}
 >
-	<a class="relative flex flex-row items-center justify-center p-1 {wrapperClass}" href="{href}">
+	<a class="relative flex flex-row items-center justify-center p-1 {wrapperClass}" {href}>
 		{@render children?.()}
 	</a>
 
