@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { expoInOut } from 'svelte/easing';
 	import { tools } from '$lib/tools';
@@ -102,6 +103,40 @@
 			window.scrollTo(0, y);
 		}
 	}
+
+	async function applyOnekoToggle(toggle: boolean) {
+		let oneko = document.getElementById("oneko");
+		let oneko_toggle = document.getElementById("oneko_toggle");
+
+		while (!oneko) {
+			await new Promise(resolve => setTimeout(resolve, 100));
+
+			oneko = document.getElementById("oneko");
+		}
+
+		if (!toggle) {
+			oneko.setAttribute("class", "invisible");
+			oneko_toggle.innerHTML = "show oneko?";
+		} else {
+			oneko.setAttribute("class", "");
+			oneko_toggle.innerHTML = "hide oneko?";
+		}
+	}
+
+	async function toggleOneko() {
+		let toggle = (localStorage.getItem('oneko_toggle') === 'true');
+		toggle = !toggle;
+
+		localStorage.setItem('oneko_toggle', toggle);
+
+		applyOnekoToggle(!toggle);
+	}
+
+	onMount(async () => {
+		let toggle = (localStorage.getItem('oneko_toggle') === 'true');
+
+		applyOnekoToggle(!toggle);
+	});
 </script>
 
 <svelte:body onmousedown={onBodyClick} />
@@ -548,7 +583,9 @@
 		</div>
 	</div>
 
-	<footer class="mt-8">
+	<a onclick={toggleOneko} id="oneko_toggle">you need js for the oneko</a>
+
+	<footer>
 		<nav>
 			<h6>LEGAL DISCLAIMER</h6>
 			<span>
