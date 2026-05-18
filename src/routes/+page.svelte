@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { expoInOut } from 'svelte/easing';
 	import { tools } from '$lib/tools';
@@ -104,38 +103,29 @@
 		}
 	}
 
-	async function applyOnekoToggle(toggle: boolean) {
-		let oneko = document.getElementById("oneko");
-		let oneko_toggle = document.getElementById("oneko_toggle");
-
+	var onekoState: boolean | null = $state(null);
+	var oneko: HTMLDivElement | null = $state(null);
+	async function onekoToggle(node: HTMLAnchorElement) {
+		onekoState = (localStorage.getItem('oneko_state') ?? 'true') === 'true';
+		oneko = document.getElementById('oneko');
 		while (!oneko) {
-			await new Promise(resolve => setTimeout(resolve, 100));
+			await new Promise((resolve) => setTimeout(resolve, 100));
+			oneko = document.getElementById('oneko');
+		}
+	}
 
-			oneko = document.getElementById("oneko");
+	$effect(() => {
+		if (!oneko || onekoState === null) {
+			return;
 		}
 
-		if (!toggle) {
-			oneko.setAttribute("class", "invisible");
-			oneko_toggle.innerHTML = "show oneko?";
+		if (onekoState) {
+			oneko.setAttribute('class', '');
 		} else {
-			oneko.setAttribute("class", "");
-			oneko_toggle.innerHTML = "hide oneko?";
+			oneko.setAttribute('class', 'invisible');
 		}
-	}
 
-	async function toggleOneko() {
-		let toggle = (localStorage.getItem('oneko_toggle') === 'true');
-		toggle = !toggle;
-
-		localStorage.setItem('oneko_toggle', toggle);
-
-		applyOnekoToggle(!toggle);
-	}
-
-	onMount(async () => {
-		let toggle = (localStorage.getItem('oneko_toggle') === 'true');
-
-		applyOnekoToggle(!toggle);
+		localStorage.setItem('oneko_state', onekoState);
 	});
 </script>
 
@@ -583,7 +573,12 @@
 		</div>
 	</div>
 
-	<a onclick={toggleOneko} id="oneko_toggle">you need js for the oneko</a>
+	<a
+		{@attach onekoToggle}
+		class="text-indigo-500 underline underline-offset-1"
+		onclick={() => (onekoState = !onekoState)}
+		><noscript>you need js for the oneko</noscript> {onekoState ? 'hide' : 'show'} oneko?</a
+	>
 
 	<footer>
 		<nav>
