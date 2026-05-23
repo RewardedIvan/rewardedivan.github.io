@@ -65,30 +65,6 @@
 	}
 </script>
 
-<noscript>
-	{#if final_popover_content}
-		<div
-			popover
-			class="backdrop:bg-surface-100 dialog-anim text-text fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md bg-transparent p-2 backdrop:opacity-40 backdrop:backdrop-blur-sm"
-			id={popover_id}
-		>
-			<div class="bg-surface-200 text-text min-w-[280px] rounded-[28px] border-none p-[24px]">
-				{@render popover_header?.()}
-
-				<div class="flex items-center gap-2">
-					{popover_title}
-
-					<textarea
-						class="bg-surface-100 resize-none border-2 border-none p-1 outline-none w-fit field-sizing-content"
-						readonly="readonly"
-						rows="1">{final_popover_content}</textarea
-					>
-				</div>
-			</div>
-		</div>
-	{/if}
-</noscript>
-
 <button
 	bind:this={buttonElement}
 	class="bg-surface-100 hover:bg-surface-200 relative cursor-pointer overflow-hidden rounded-md transition-all duration-200 ease-in-out select-none {className}"
@@ -97,6 +73,30 @@
 	popovertarget={popover_id}
 	{...restProps}
 >
+	<noscript>
+		{#if final_popover_content}
+			<div
+				popover
+				class="backdrop:bg-surface-100 dialog-anim text-text fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md bg-transparent p-2 backdrop:opacity-40 backdrop:backdrop-blur-sm text-left text-base"
+				id={popover_id}
+			>
+				<div class="bg-surface-200 text-text min-w-[280px] rounded-[28px] border-none p-[24px]">
+					{@render popover_header?.()}
+
+					<div class="flex items-center gap-2">
+						{popover_title}
+
+						<textarea
+							class="bg-surface-100 field-sizing-content w-fit resize-none border-2 border-none p-1 outline-none"
+							readonly="readonly"
+							rows="1">{final_popover_content}</textarea
+						>
+					</div>
+				</div>
+			</div>
+		{/if}
+	</noscript>
+
 	<a class="relative flex flex-row items-center justify-center p-1 {wrapperClass}" {href}>
 		{@render children?.()}
 	</a>
@@ -118,10 +118,10 @@
 	</div>
 </button>
 <input
-	type="text"
-	class="absolute top-0 left-0 -translate-x-[200vw]"
-	value={copy}
-	bind:this={copyInput}
+   type="text"
+   class="absolute top-0 left-0 -translate-x-[200vw]"
+   value={copy}
+   bind:this={copyInput}
 />
 
 <style>

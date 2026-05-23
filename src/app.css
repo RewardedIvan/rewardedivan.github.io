@@ -86,7 +86,7 @@
 	--color-surface-300: var(--catppuccin-surface-300);
 	--color-surface-200: var(--catppuccin-surface-200);
 	--color-surface-100: var(--catppuccin-surface-100);
-	--color-base: var(--catppuccin-base);
+	--color-ctp-base: var(--catppuccin-base);
 	--color-mantle: var(--catppuccin-mantle);
 	--color-crust: var(--catppuccin-crust);
 
