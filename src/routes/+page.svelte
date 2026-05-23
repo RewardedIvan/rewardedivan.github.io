@@ -608,11 +608,11 @@
 		</div>
 	</div>
 
-	<a
+	<button
 		{@attach onekoToggle}
-		class="text-indigo-500 underline underline-offset-1"
+		class="text-indigo-500 underline underline-offset-1 cursor-pointer text-left"
 		onclick={() => (onekoState = !onekoState)}
-		><noscript>you need js for the oneko</noscript> {onekoState ? 'hide' : 'show'} oneko?</a
+		><noscript>you need js for the oneko</noscript> {onekoState ? 'hide' : 'show'} oneko?</button
 	>
 
 	<footer>
