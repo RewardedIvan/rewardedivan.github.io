@@ -10,6 +10,7 @@
 
 	import ClipboardIcon from '$lib/icons/material/ClipboardIcon.svelte';
 	import KeyIcon from '$lib/icons/material/KeyIcon.svelte';
+	import FingerprintIcon from '$lib/icons/material/FingerprintIcon.svelte';
 	import DiscordIcon from '$lib/icons/brand/DiscordIcon.svelte';
 	import MatrixIcon from '$lib/icons/brand/MatrixIcon.svelte';
 	import XIcon from '$lib/icons/brand/XIcon.svelte';
@@ -462,11 +463,16 @@
 				class="group text-xl"
 				copy="A16B98815D0563295CB2795FA16F1618AADEFEDF"
 				popover_id="pgp"
-				popover_title="my pgp&colon;"
+				popover_title="my pgp fingerprint&colon;"
 				onClick={() => (copied = true)}
 			>
+				<FingerprintIcon />
+				{@render txt('pgp fp')}
+			</Button>
+
+			<Button class="group text-xl" href="/ivan.asc">
 				<KeyIcon />
-				{@render txt('pgp')}
+				{@render txt('pgp pubkey')}
 			</Button>
 
 			<Button href="https://github.com/RewardedIvan/rewardedivan.github.io" class="group text-xl">
