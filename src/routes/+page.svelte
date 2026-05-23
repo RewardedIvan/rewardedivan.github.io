@@ -24,6 +24,7 @@
 	import SignalIcon from '$lib/icons/brand/SignalIcon.svelte';
 	import LiberaColorIcon from '$lib/icons/brand/LiberaColorIcon.svelte';
 	import OFTCIcon from '$lib/icons/brand/OFTCIcon.svelte';
+	import MoneroIcon from '$lib/icons/brand/MoneroIcon.svelte';
 
 	let discordDialog: HTMLDialogElement | undefined = $state();
 	let copied = $state(false);
@@ -473,6 +474,17 @@
 			<Button class="group text-xl" href="/ivan.asc">
 				<KeyIcon />
 				{@render txt('pgp pubkey')}
+			</Button>
+
+			<Button
+				class="group text-xl"
+				copy="47hN2MyjQVmXRBmaE5db66QH7Ny4uGkmMHxwTnVS2t3MMQxMj9zMPyuKuceSocMotY83q9Gqv8umWNrwWuxTMYQ4UVY19WM"
+				popover_id="pgp"
+				popover_title="my monero wallet address&colon;"
+				onClick={() => (copied = true)}
+			>
+				<MoneroIcon />
+				{@render txt('monero')}
 			</Button>
 
 			<Button href="https://github.com/RewardedIvan/rewardedivan.github.io" class="group text-xl">
