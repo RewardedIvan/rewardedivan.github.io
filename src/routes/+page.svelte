@@ -499,6 +499,11 @@
 				{@render txt('monero')}
 			</Button>
 
+			<Button class="group text-xl" href="slsk://int4_t/">
+				<img src="https://www.slsknet.org/news/sites/default/files/slsk_bird.jpg" alt="slsk bird" style:width="1.5em" style:height="1.5em" />
+				{@render txt('slsk')}
+			</Button>
+
 			<Button href="https://github.com/RewardedIvan/rewardedivan.github.io" class="group text-xl">
 				<GithubIcon />
 				{@render txt('source')}
