@@ -32,6 +32,15 @@
 				)
 				.then(eval);
 		}
+
+		function isChromiumBased() {
+			// @ts-ignore
+			return !!window.chrome;
+		}
+
+		if (isChromiumBased()) {
+			alert("int4.cc is optimized for firefox, for the best experience, i recommend using a firefox-based browser");
+		}
 	});
 </script>
 
