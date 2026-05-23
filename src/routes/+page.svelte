@@ -25,6 +25,7 @@
 	import LiberaColorIcon from '$lib/icons/brand/LiberaColorIcon.svelte';
 	import OFTCIcon from '$lib/icons/brand/OFTCIcon.svelte';
 	import MoneroIcon from '$lib/icons/brand/MoneroIcon.svelte';
+	import MailIcon from '$lib/icons/material/MailIcon.svelte';
 
 	let discordDialog: HTMLDialogElement | undefined = $state();
 	let copied = $state(false);
@@ -363,6 +364,17 @@
 			>
 				<MatrixIcon />
 				{@render txt('matrix.org')}
+			</Button>
+
+			<Button
+				class="group text-xl"
+				popover_id="mail"
+				popover_title="my int4.cc e-mail&colon;"
+				copy="ivan@int4.cc"
+				onClick={() => (copied = true)}
+			>
+				<MailIcon />
+				{@render txt('@int4.cc')}
 			</Button>
 
 			<Button
