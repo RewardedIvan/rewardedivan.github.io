@@ -249,6 +249,7 @@
 				</p>
 				<p>the time for me rn is <Clock tz="Europe/Sofia" /></p>
 				<p>INFP-T (introverted non-functional person -nixie 2025)</p>
+				<p>knox is included in the kernel for your security and privacy&trade; -user0 2026</p>
 			</section>
 			<section id="hobbies">
 				<ul class="ml-4 *:list-disc">
