@@ -253,6 +253,7 @@
 			</section>
 			<section id="hobbies">
 				<ul class="ml-4 *:list-disc">
+					<li>drawing triangles</li>
 					<li>
 						<a href="https://1k2s.netlify.app/about-me" title="ty" class="text-blue underline"
 							>sleeping</a
