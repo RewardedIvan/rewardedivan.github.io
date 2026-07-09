@@ -242,7 +242,7 @@
 					running <img src="/icons/me/Debian.svg" alt="debian" />
 					<img src="/icons/me/Proxmox.svg" alt="proxmox" /> on my 2 home servers
 				</p>
-				<p>xbox choose my old username</p>
+				<p>xbox chose my old username</p>
 				<p>free software advocate</p>
 				<p class="flex flex-row items-center gap-1">
 					i download my music <Foobar2000 />
