@@ -558,6 +558,14 @@
 					width="88"
 				/>
 			</a>
+			<a href="https://williamhorning.net">
+				<img
+					alt="jersey (williamhorn.ing) button"
+					height="31"
+					src="https://williamhorning.net/assets/buttons/jersey.png"
+					width="88"
+				/>
+			</a>
 			<a href="https://vendicated.dev/">
 				<img width="88" height="31" src="/88x31/vendicated.gif" alt="Vendicated" />
 			</a>
