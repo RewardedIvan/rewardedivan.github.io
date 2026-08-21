@@ -621,6 +621,9 @@
 			<a href="https://copyparty.eu/">
 				<img src="https://copyparty.eu/88x31.png" alt="copyparty" title="copyparty" />
 			</a>
+			<a href="https://godotengine.org/">
+				<img src="/88x31/godot.webp" alt="godot engine <3" title="godot engine <3" />
+			</a>
 		</div>
 	</div>
 
