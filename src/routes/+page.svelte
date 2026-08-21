@@ -538,7 +538,13 @@
 				><img src="https://avascik.neocities.org/88x31.jpg" alt="88x31" height="31" width="88" /></a
 			>
 			<a href="https://nixie.int4.cc"
-				><img src="https://nixie.int4.cc/88x31.gif" alt="88x31" height="31" width="88" /></a
+				><img
+					src="https://nixie.int4.cc/88x31.gif"
+					alt="nixie"
+					title="nixie"
+					height="31"
+					width="88"
+				/></a
 			>
 			<a href="https://lumentae.dev">
 				<img src="https://lumentae.dev/lumentae.gif" alt="lumentae" title="lumentae" />
@@ -557,7 +563,8 @@
 			</a>
 			<a href="https://vavakado.xyz">
 				<img
-					alt="vavakado's button"
+					alt="vavakado"
+					title="vavakado"
 					height="31"
 					src="https://vavakado.xyz/static/buttons/vavakado.webp"
 					width="88"
@@ -565,7 +572,8 @@
 			</a>
 			<a href="https://williamhorning.dev">
 				<img
-					alt="jersey (williamhorn.ing) button"
+					alt="jersey"
+					title="jersey (williamhorn.ing)"
 					height="31"
 					src="https://williamhorning.dev/assets/buttons/jersey.png"
 					width="88"
