@@ -559,7 +559,7 @@
 				/>
 			</a>
 			<a href="https://carsoncoder.com">
-				<img src="/88x31/carsoncoder.png" width="88" heighr="31" alt="carsoncoder" />
+				<img src="/88x31/carsoncoder.png" width="88" height="31" alt="carsoncoder" />
 			</a>
 			<a href="https://vavakado.xyz">
 				<img
