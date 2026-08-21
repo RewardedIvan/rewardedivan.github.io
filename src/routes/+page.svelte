@@ -563,11 +563,11 @@
 					width="88"
 				/>
 			</a>
-			<a href="https://williamhorning.net">
+			<a href="https://williamhorning.dev">
 				<img
 					alt="jersey (williamhorn.ing) button"
 					height="31"
-					src="https://williamhorning.net/assets/buttons/jersey.png"
+					src="https://williamhorning.dev/assets/buttons/jersey.png"
 					width="88"
 				/>
 			</a>
