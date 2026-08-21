@@ -503,7 +503,12 @@
 			</Button>
 
 			<Button class="group text-xl" href="slsk://int4_t/">
-				<img src="https://www.slsknet.org/news/sites/default/files/slsk_bird.jpg" alt="slsk bird" style:width="1.5em" style:height="1.5em" />
+				<img
+					src="https://www.slsknet.org/news/sites/default/files/slsk_bird.jpg"
+					alt="slsk bird"
+					style:width="1.5em"
+					style:height="1.5em"
+				/>
 				{@render txt('slsk')}
 			</Button>
 
@@ -621,7 +626,7 @@
 
 	<button
 		{@attach onekoToggle}
-		class="text-indigo-500 underline underline-offset-1 cursor-pointer text-left"
+		class="cursor-pointer text-left text-indigo-500 underline underline-offset-1"
 		onclick={() => (onekoState = !onekoState)}
 		><noscript>you need js for the oneko</noscript> {onekoState ? 'hide' : 'show'} oneko?</button
 	>
