@@ -638,7 +638,7 @@
 	<iframe
 		width="100%"
 		src="https://blahaj.int4.cc/web_ui/"
-		style="border: 0; outline: 0;"
+		style="border: 0; outline: 0; height: 20em;"
 		title="blahaj chat"
 	></iframe>
 
