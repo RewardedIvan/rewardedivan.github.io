@@ -579,6 +579,14 @@
 					width="88"
 				/>
 			</a>
+			<a href="https://mistablizzard.nekoweb.org">
+				<img
+					width="88"
+					height="31"
+					alt="mistablizzard"
+					src="https://i.ibb.co/Z1hXtpz3/button-88x31.webp"
+				/>
+			</a>
 			<a href="https://vendicated.dev/">
 				<img width="88" height="31" src="/88x31/vendicated.gif" alt="Vendicated" />
 			</a>
