@@ -537,7 +537,7 @@
 			<a href="https://avascik.neocities.org"
 				><img src="https://avascik.neocities.org/88x31.jpg" alt="88x31" height="31" width="88" /></a
 			>
-			<a href="https://nixie.int4.cc"
+			<!--<a href="https://nixie.int4.cc"
 				><img
 					src="https://nixie.int4.cc/88x31.gif"
 					alt="nixie"
@@ -545,7 +545,7 @@
 					height="31"
 					width="88"
 				/></a
-			>
+			>-->
 			<a href="https://lumentae.dev">
 				<img src="https://lumentae.dev/lumentae.gif" alt="lumentae" title="lumentae" />
 			</a>
@@ -582,9 +582,9 @@
 			<a href="https://vendicated.dev/">
 				<img width="88" height="31" src="/88x31/vendicated.gif" alt="Vendicated" />
 			</a>
-			<a href="https://kibty.town/">
+			<!--<a href="https://kibty.town/">
 				<img src="https://kibty.town/files/img/buttons/kibty.town-badge.gif" alt="kibty town" />
-			</a>
+			</a>-->
 			<a href="https://ezri.pet">
 				<img src="https://ezri.pet/assets/img/badges/ezri.png" alt="ezri" />
 			</a>
