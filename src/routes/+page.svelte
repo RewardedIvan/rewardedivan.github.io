@@ -531,7 +531,7 @@
 					height="31"
 					style="image-rendering: pixelated;"
 					src="/88x31.png"
-					alt="ivan int4.cc"
+					alt="ivan. int4.cc"
 				/>
 			</a>
 			<a href="https://avascik.neocities.org"
