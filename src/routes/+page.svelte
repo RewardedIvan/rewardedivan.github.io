@@ -340,11 +340,11 @@
 				class="group text-xl"
 				popover_id="matrix_popover"
 				popover_title="my matrix&colon;"
-				copy="@int4_t:matrix.int4.cc"
+				copy="@int4_t:int4.cc"
 				onClick={() => (copied = true)}
 			>
 				<MatrixIcon />
-				<span class="ml-1 max-w-55"> matrix.int4.cc </span>
+				<span class="ml-1 max-w-55"> int4.cc </span>
 			</Button>
 
 			<Button
